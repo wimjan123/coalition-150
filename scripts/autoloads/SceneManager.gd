@@ -1,7 +1,7 @@
 # SceneManager - Scene transition management autoload service
 # Implements SceneManagerInterface for smooth scene transitions
 
-extends SceneManagerInterface
+extends Node
 
 # Transition state
 var current_transition: Tween
@@ -9,6 +9,27 @@ var fade_overlay: ColorRect
 var is_transition_active: bool = false
 var preloaded_scenes: Dictionary = {}
 var current_scene_node: Node
+
+# Configuration properties
+var fade_color: Color = Color.BLACK
+var default_fade_duration: float = 0.5
+var memory_threshold_mb: int = 512
+var max_preloaded_scenes: int = 3
+var debug_transitions: bool = false
+var free_previous_scene: bool = true
+
+# Scene transition signals (from SceneManagerInterface)
+signal scene_change_started(from_scene: String, to_scene: String)
+signal scene_change_completed(scene_path: String)
+signal transition_fade_started()
+signal transition_fade_completed()
+
+# Additional transition signals
+signal transition_failed(error_message: String)
+signal transition_started(from_scene: String, to_scene: String)
+signal transition_completed(scene_path: String)
+signal scene_preparing(scene_path: String)
+signal transition_progress_updated(progress: float)
 
 func _ready():
 	set_name("SceneManager")
@@ -177,10 +198,27 @@ func check_memory_usage() -> void:
 		print("Too many preloaded scenes (", preloaded_scenes.size(), "), clearing oldest")
 		clear_preloaded_scenes()
 
+# Validation methods
+func validate_scene_path(scene_path: String) -> bool:
+	if scene_path.is_empty():
+		return false
+
+	if not scene_path.begins_with("res://"):
+		return false
+
+	if not scene_path.ends_with(".tscn"):
+		return false
+
+	return ResourceLoader.exists(scene_path)
+
 # Lifecycle callbacks (can be overridden)
 func _on_transition_begin(from_scene: String, to_scene: String) -> void:
 	if debug_transitions:
 		_log_transition_timing(from_scene, to_scene, default_fade_duration)
+
+func _log_transition_timing(from_scene: String, to_scene: String, duration: float) -> void:
+	var timestamp: String = Time.get_datetime_string_from_system()
+	print("[%s] Scene transition: %s -> %s (duration: %.2fs)" % [timestamp, from_scene, to_scene, duration])
 
 func _on_transition_complete(scene_path: String) -> void:
 	pass  # Override for custom logic
@@ -200,3 +238,76 @@ func force_cleanup() -> void:
 	if current_transition:
 		current_transition.kill()
 	_reset_transition_state()
+
+# Player Creation Flow Implementation - SceneManagerInterface methods
+var current_character: CharacterData = null
+var save_system: SaveSystem = null
+
+func _init_save_system() -> void:
+	if not save_system:
+		save_system = SaveSystem.new()
+
+func change_scene_to_player_selection() -> void:
+	transition_to_scene("res://scenes/player/CharacterPartySelection.tscn")
+
+func change_scene_to_player_creation() -> void:
+	transition_to_scene("res://scenes/player/CharacterPartyCreation.tscn")
+
+func change_scene_to_interview() -> void:
+	transition_to_scene("res://scenes/player/MediaInterview.tscn")
+
+func change_scene_to_main_menu() -> void:
+	transition_to_scene("res://scenes/main/MainMenu.tscn")
+
+func change_scene_to_main_game() -> void:
+	# TODO: Implement main game scene when available
+	push_warning("Main game scene not yet implemented")
+	transition_to_scene("res://scenes/main/MainMenu.tscn")
+
+func set_transition_duration(duration: float) -> void:
+	default_fade_duration = duration
+
+func has_save_data() -> bool:
+	_init_save_system()
+	return save_system.has_save_data()
+
+func get_available_characters() -> Array[CharacterData]:
+	_init_save_system()
+	var player_data: PlayerData = save_system.load_player_data()
+	if player_data:
+		return player_data.characters
+	return []
+
+func set_current_character(character: CharacterData) -> void:
+	current_character = character
+
+func get_current_character() -> CharacterData:
+	return current_character
+
+func clear_session() -> void:
+	current_character = null
+
+func validate_scene_transition(from_scene: String, to_scene: String) -> bool:
+	# Define valid transition paths for player creation flow
+	var valid_transitions: Dictionary = {
+		"res://scenes/main/MainMenu.tscn": [
+			"res://scenes/player/CharacterPartySelection.tscn"
+		],
+		"res://scenes/player/CharacterPartySelection.tscn": [
+			"res://scenes/player/CharacterPartyCreation.tscn",
+			"res://scenes/main/MainMenu.tscn"
+		],
+		"res://scenes/player/CharacterPartyCreation.tscn": [
+			"res://scenes/player/MediaInterview.tscn",
+			"res://scenes/player/CharacterPartySelection.tscn"
+		],
+		"res://scenes/player/MediaInterview.tscn": [
+			"res://scenes/main/MainMenu.tscn",
+			"res://scenes/player/CharacterPartyCreation.tscn"
+		]
+	}
+
+	if from_scene in valid_transitions:
+		return to_scene in valid_transitions[from_scene]
+
+	return true  # Allow other transitions by default

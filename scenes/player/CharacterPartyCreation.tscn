@@ -1,0 +1,223 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2y3z4a5c6v7d8e9f0"]
+
+[ext_resource type="Script" path="res://scripts/player/CharacterPartyCreation.gd" id="1_ghi789"]
+[ext_resource type="Theme" path="res://assets/themes/player_creation_theme.tres" id="2_jkl012"]
+
+[node name="CharacterPartyCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_jkl012")
+script = ExtResource("1_ghi789")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+
+[node name="LeftPanel" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MainContainer/LeftPanel"]
+layout_mode = 2
+text = "Character Creation"
+horizontal_alignment = 1
+theme_type_variation = &"HeaderLarge"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer/LeftPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FormContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterSection" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer"]
+layout_mode = 2
+
+[node name="SectionTitle" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection"]
+layout_mode = 2
+text = "Character Information"
+theme_type_variation = &"HeaderMedium"
+
+[node name="NameGroup" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/NameGroup"]
+layout_mode = 2
+text = "Character Name *"
+
+[node name="NameLineEdit" type="LineEdit" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/NameGroup"]
+layout_mode = 2
+placeholder_text = "Enter your character's name"
+
+[node name="ExperienceGroup" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection"]
+layout_mode = 2
+
+[node name="ExperienceLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/ExperienceGroup"]
+layout_mode = 2
+text = "Political Experience *"
+
+[node name="ExperienceLineEdit" type="LineEdit" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/ExperienceGroup"]
+layout_mode = 2
+placeholder_text = "e.g., Mayor, City Councilor, Activist"
+
+[node name="BackstoryGroup" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection"]
+layout_mode = 2
+
+[node name="BackstoryLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackstoryGroup"]
+layout_mode = 2
+text = "Personal Backstory *"
+
+[node name="BackstoryTextEdit" type="TextEdit" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackstoryGroup"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 100)
+placeholder_text = "Describe your character's background and motivations"
+
+[node name="Spacer1" type="Control" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="PartySection" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer"]
+layout_mode = 2
+
+[node name="SectionTitle" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/PartySection"]
+layout_mode = 2
+text = "Party Information"
+theme_type_variation = &"HeaderMedium"
+
+[node name="PartyNameGroup" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/PartySection"]
+layout_mode = 2
+
+[node name="PartyNameLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/PartySection/PartyNameGroup"]
+layout_mode = 2
+text = "Party Name *"
+
+[node name="PartyNameLineEdit" type="LineEdit" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/PartySection/PartyNameGroup"]
+layout_mode = 2
+placeholder_text = "Enter your party's name"
+
+[node name="SloganGroup" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/PartySection"]
+layout_mode = 2
+
+[node name="SloganLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/PartySection/SloganGroup"]
+layout_mode = 2
+text = "Campaign Slogan *"
+
+[node name="SloganLineEdit" type="LineEdit" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/PartySection/SloganGroup"]
+layout_mode = 2
+placeholder_text = "Enter your campaign slogan"
+
+[node name="RightPanel" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MainContainer/RightPanel"]
+layout_mode = 2
+text = "Party Branding"
+horizontal_alignment = 1
+theme_type_variation = &"HeaderLarge"
+
+[node name="PreviewContainer" type="VBoxContainer" parent="MainContainer/RightPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorSection" type="VBoxContainer" parent="MainContainer/RightPanel/PreviewContainer"]
+layout_mode = 2
+
+[node name="ColorLabel" type="Label" parent="MainContainer/RightPanel/PreviewContainer/ColorSection"]
+layout_mode = 2
+text = "Party Color *"
+theme_type_variation = &"HeaderMedium"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="MainContainer/RightPanel/PreviewContainer/ColorSection"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 50)
+color = Color(0.2, 0.6, 0.8, 1)
+
+[node name="LogoSection" type="VBoxContainer" parent="MainContainer/RightPanel/PreviewContainer"]
+layout_mode = 2
+
+[node name="LogoLabel" type="Label" parent="MainContainer/RightPanel/PreviewContainer/LogoSection"]
+layout_mode = 2
+text = "Party Logo *"
+theme_type_variation = &"HeaderMedium"
+
+[node name="LogoContainer" type="GridContainer" parent="MainContainer/RightPanel/PreviewContainer/LogoSection"]
+layout_mode = 2
+columns = 3
+
+[node name="Logo0" type="Button" parent="MainContainer/RightPanel/PreviewContainer/LogoSection/LogoContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+toggle_mode = true
+button_group = null
+text = "Logo 1"
+
+[node name="Logo1" type="Button" parent="MainContainer/RightPanel/PreviewContainer/LogoSection/LogoContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+toggle_mode = true
+text = "Logo 2"
+
+[node name="Logo2" type="Button" parent="MainContainer/RightPanel/PreviewContainer/LogoSection/LogoContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+toggle_mode = true
+text = "Logo 3"
+
+[node name="Logo3" type="Button" parent="MainContainer/RightPanel/PreviewContainer/LogoSection/LogoContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+toggle_mode = true
+text = "Logo 4"
+
+[node name="Logo4" type="Button" parent="MainContainer/RightPanel/PreviewContainer/LogoSection/LogoContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+toggle_mode = true
+text = "Logo 5"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainContainer/RightPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="MainContainer/RightPanel/ButtonContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 50)
+text = "Back"
+
+[node name="ContinueButton" type="Button" parent="MainContainer/RightPanel/ButtonContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 50)
+disabled = true
+text = "Continue to Interview"
+
+[node name="ValidationMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = -40.0
+text = ""
+horizontal_alignment = 1
+modulate = Color(1, 0.5, 0.5, 1)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh5n7m8k1l2p4"]
+[gd_scene load_steps=3 format=3 uid="uid://bh5n7m8k1l2p4"]
 
 [ext_resource type="Theme" uid="uid://b4q2xocvxk8y5" path="res://assets/themes/ui_theme.tres" id="1_z3x4c"]
+[ext_resource type="Script" path="res://scripts/main/MainMenu.gd" id="2_main_menu"]
 
 [node name="MainMenu" type="Control"]
+script = ExtResource("2_main_menu")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,6 +51,11 @@ offset_bottom = 150.0
 [node name="StartButton" type="Button" parent="MenuContainer"]
 layout_mode = 2
 text = "Start Game"
+
+[node name="LoadButton" type="Button" parent="MenuContainer"]
+layout_mode = 2
+disabled = true
+text = "Load Game"
 
 [node name="OptionsButton" type="Button" parent="MenuContainer"]
 layout_mode = 2

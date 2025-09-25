@@ -1,0 +1,38 @@
+[gd_resource type="Theme" script_class="" format=3]
+
+[resource]
+resource_name = "Player Creation Theme"
+
+default_font_size = 16
+
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_color_disabled = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_color_focus = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_color_hover = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_color_pressed = Color(1, 1, 1, 1)
+
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+Label/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+
+LineEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+LineEdit/colors/font_color_selected = Color(0, 0, 0, 1)
+LineEdit/colors/font_color_uneditable = Color(0.875, 0.875, 0.875, 0.5)
+LineEdit/colors/selection_color = Color(0.5, 0.5, 1, 1)
+
+Panel/styles/panel = null
+
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/styles/background = null
+ProgressBar/styles/fill = null
+
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = null

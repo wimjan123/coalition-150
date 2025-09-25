@@ -1,0 +1,168 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3z4a5b6c7d8e9f0g1"]
+
+[ext_resource type="Script" path="res://scripts/player/MediaInterview.gd" id="1_mno345"]
+[ext_resource type="Theme" path="res://assets/themes/player_creation_theme.tres" id="2_pqr678"]
+
+[node name="MediaInterview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_pqr678")
+script = ExtResource("1_mno345")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+
+[node name="Header" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainContainer/Header"]
+layout_mode = 2
+text = "Media Interview"
+horizontal_alignment = 1
+theme_type_variation = &"HeaderLarge"
+
+[node name="ProgressContainer" type="HBoxContainer" parent="MainContainer/Header"]
+layout_mode = 2
+alignment = 1
+
+[node name="ProgressLabel" type="Label" parent="MainContainer/Header/ProgressContainer"]
+layout_mode = 2
+text = "Question 1 of 5"
+theme_type_variation = &"HeaderMedium"
+
+[node name="ProgressBar" type="ProgressBar" parent="MainContainer/Header/ProgressContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 20)
+max_value = 5.0
+value = 1.0
+
+[node name="Spacer1" type="Control" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 30)
+
+[node name="ContentContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionSection" type="VBoxContainer" parent="MainContainer/ContentContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionLabel" type="Label" parent="MainContainer/ContentContainer/QuestionSection"]
+layout_mode = 2
+text = "Question text will appear here..."
+autowrap_mode = 3
+theme_type_variation = &"HeaderMedium"
+
+[node name="Spacer2" type="Control" parent="MainContainer/ContentContainer/QuestionSection"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="AnswerContainer" type="VBoxContainer" parent="MainContainer/ContentContainer/QuestionSection"]
+layout_mode = 2
+
+[node name="AnswerA" type="Button" parent="MainContainer/ContentContainer/QuestionSection/AnswerContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+text = "Answer A"
+alignment = 0
+
+[node name="AnswerB" type="Button" parent="MainContainer/ContentContainer/QuestionSection/AnswerContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+text = "Answer B"
+alignment = 0
+
+[node name="AnswerC" type="Button" parent="MainContainer/ContentContainer/QuestionSection/AnswerContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+text = "Answer C"
+alignment = 0
+
+[node name="AnswerD" type="Button" parent="MainContainer/ContentContainer/QuestionSection/AnswerContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 60)
+text = "Answer D"
+alignment = 0
+
+[node name="SummarySection" type="VBoxContainer" parent="MainContainer/ContentContainer"]
+layout_mode = 2
+visible = false
+
+[node name="SummaryTitle" type="Label" parent="MainContainer/ContentContainer/SummarySection"]
+layout_mode = 2
+text = "Interview Complete!"
+horizontal_alignment = 1
+theme_type_variation = &"HeaderLarge"
+
+[node name="SummaryText" type="Label" parent="MainContainer/ContentContainer/SummarySection"]
+layout_mode = 2
+text = "Thank you for completing the interview. Your responses have been recorded and will influence your political career."
+autowrap_mode = 3
+horizontal_alignment = 1
+
+[node name="ResponsesList" type="VBoxContainer" parent="MainContainer/ContentContainer/SummarySection"]
+layout_mode = 2
+
+[node name="ResponsesTitle" type="Label" parent="MainContainer/ContentContainer/SummarySection/ResponsesList"]
+layout_mode = 2
+text = "Your Responses:"
+theme_type_variation = &"HeaderMedium"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer/ContentContainer/SummarySection/ResponsesList"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 200)
+
+[node name="ResponsesContainer" type="VBoxContainer" parent="MainContainer/ContentContainer/SummarySection/ResponsesList/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer3" type="Control" parent="MainContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="NavigationContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="MainContainer/NavigationContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 50)
+text = "Previous"
+disabled = true
+
+[node name="Spacer" type="Control" parent="MainContainer/NavigationContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(20, 0)
+
+[node name="NextButton" type="Button" parent="MainContainer/NavigationContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 50)
+disabled = true
+text = "Next"
+
+[node name="Spacer2" type="Control" parent="MainContainer/NavigationContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(20, 0)
+
+[node name="FinishButton" type="Button" parent="MainContainer/NavigationContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 50)
+visible = false
+text = "Enter Campaign"
