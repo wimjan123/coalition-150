@@ -6,7 +6,7 @@ class_name FadeTransition
 
 # Node references
 @onready var fade_rect: ColorRect = $FadeRect
-@onready var transition_tween: Tween = $TransitionTween
+var transition_tween: Tween
 
 # Configuration
 @export var default_duration: float = 1.0

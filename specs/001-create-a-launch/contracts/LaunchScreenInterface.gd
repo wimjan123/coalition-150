@@ -28,8 +28,8 @@ signal transition_completed()
 # PUBLIC METHODS - Scene control interface
 
 ## Initialize the launch screen with configuration
-## @param config: LaunchConfig - Loading and display configuration
-func initialize(config: LaunchConfig) -> void:
+## @param config: Dictionary - Loading and display configuration
+func initialize(config: Dictionary) -> void:
 	assert(false, "Must be implemented by concrete class")
 
 ## Start the loading process

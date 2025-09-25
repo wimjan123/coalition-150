@@ -13,7 +13,7 @@ signal selection_validated(is_valid: bool, error_message: String)
 ## Core preset management methods
 func load_preset_collection() -> CharacterBackgroundPresetsInterface:
 	"""Loads the character background presets from resource file"""
-	pass
+	return null
 
 func populate_preset_dropdown(presets: CharacterBackgroundPresetsInterface) -> void:
 	"""Populates the OptionButton with preset options sorted by difficulty"""
@@ -29,11 +29,11 @@ func update_preview_display(preset: PresetOptionInterface) -> void:
 
 func validate_selection() -> bool:
 	"""Validates that a preset has been selected before allowing progression"""
-	pass
+	return false
 
 func get_selected_preset_id() -> String:
 	"""Returns the ID of the currently selected preset"""
-	pass
+	return ""
 
 func save_character_data() -> void:
 	"""Saves character data including selected preset ID"""
@@ -59,15 +59,15 @@ func hide_selection_error() -> void:
 ## Migration and compatibility methods
 func migrate_legacy_background(old_background_text: String) -> String:
 	"""Attempts to map legacy free-text background to closest preset ID"""
-	pass
+	return ""
 
 func handle_missing_preset(preset_id: String) -> String:
 	"""Handles case where saved preset ID is no longer available"""
-	pass
+	return ""
 
 func get_character_data_with_preset() -> Dictionary:
 	"""Returns complete character data including preset information"""
-	pass
+	return {}
 
 ## Contract validation for UI elements
 func _validate_ui_elements() -> bool:
@@ -105,7 +105,7 @@ func _validate_signal_connections() -> bool:
 ## Testing support methods
 func _get_test_preset_data() -> CharacterBackgroundPresetsInterface:
 	"""Returns test preset data for unit testing"""
-	pass
+	return null
 
 func _simulate_preset_selection(preset_index: int) -> void:
 	"""Simulates user preset selection for testing"""
@@ -113,4 +113,4 @@ func _simulate_preset_selection(preset_index: int) -> void:
 
 func _get_ui_state() -> Dictionary:
 	"""Returns current UI state for testing validation"""
-	pass
+	return {}
