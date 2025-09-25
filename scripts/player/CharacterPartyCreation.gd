@@ -134,7 +134,11 @@ func _create_fallback_presets() -> void:
 	preset3.is_satirical = false
 	presets.append(preset3)
 
-	background_presets.preset_options = presets
+	# Create properly typed array
+	var typed_presets: Array[PresetOption] = []
+	for preset in presets:
+		typed_presets.append(preset)
+	background_presets.preset_options = typed_presets
 	background_presets.version = "fallback"
 	print("⚠️  Using ", presets.size(), " fallback presets due to resource loading failure")
 

@@ -71,7 +71,8 @@ func reset_progress() -> void:
 
 func complete_progress() -> void:
 	set_progress(1.0, true)
-	await progress_tween.finished if progress_tween
+	if progress_tween:
+		await progress_tween.finished
 	progress_completed.emit()
 
 # Animation methods

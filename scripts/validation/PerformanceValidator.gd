@@ -50,7 +50,7 @@ func validate_scene_loading_time(start_time: float, end_time: float) -> bool:
 	return true
 
 func validate_memory_usage() -> bool:
-	var memory_mb = OS.get_static_memory_usage_by_type().total / (1024 * 1024)
+	var memory_mb = OS.get_static_memory_usage() / (1024 * 1024)
 
 	if memory_mb > 200.0:  # Conservative limit
 		performance_issue_detected.emit("memory", memory_mb)
@@ -78,7 +78,7 @@ func get_performance_report() -> Dictionary:
 	return {
 		"average_fps": _calculate_average(fps_samples),
 		"average_scene_load_ms": _calculate_average(scene_load_times),
-		"current_memory_mb": OS.get_static_memory_usage_by_type().total / (1024 * 1024),
+		"current_memory_mb": OS.get_static_memory_usage() / (1024 * 1024),
 		"fps_stable": _calculate_average(fps_samples) >= 60.0,
 		"scene_loading_fast": scene_load_times.is_empty() or scene_load_times.max() <= 100.0
 	}

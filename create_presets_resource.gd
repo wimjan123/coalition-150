@@ -1,0 +1,159 @@
+# Script to recreate the preset resource file
+# Run this from Godot's script editor to regenerate CharacterBackgroundPresets.tres
+
+@tool
+extends RefCounted
+
+static func create_preset_resource():
+	print("Creating preset resource...")
+
+	# Create the collection
+	var presets = CharacterBackgroundPresets.new()
+	presets.version = "1.0.0"
+
+	# Create all 10 presets
+	var preset_data = [
+		{
+			"id": "student_activist",
+			"display_name": "Student Activist",
+			"background_text": "A passionate university student who organized climate protests and student union campaigns. New to formal politics but brings fresh energy and grassroots organizing experience.",
+			"character_archetype": "Grassroots Organizer",
+			"difficulty_rating": 1,
+			"difficulty_label": "Very Easy",
+			"gameplay_impact": "High social media reach, strong youth support, limited political connections",
+			"political_alignment": "Progressive",
+			"is_satirical": false
+		},
+		{
+			"id": "local_councillor",
+			"display_name": "Local Councillor",
+			"background_text": "Served three terms on the municipal council, focusing on housing policy and local business development. Knows the political process but lacks national recognition.",
+			"character_archetype": "Career Politician",
+			"difficulty_rating": 3,
+			"difficulty_label": "Easy",
+			"gameplay_impact": "Solid political foundations, established networks, moderate public recognition",
+			"political_alignment": "Centrist",
+			"is_satirical": false
+		},
+		{
+			"id": "union_leader",
+			"display_name": "Union Leader",
+			"background_text": "Led the national teachers' union through major contract negotiations and strikes. Strong connections to working-class voters but viewed with suspicion by business leaders.",
+			"character_archetype": "Labor Advocate",
+			"difficulty_rating": 4,
+			"difficulty_label": "Medium",
+			"gameplay_impact": "Strong labor support, experienced negotiator, challenges with business community",
+			"political_alignment": "Progressive",
+			"is_satirical": false
+		},
+		{
+			"id": "small_business_owner",
+			"display_name": "Small Business Owner",
+			"background_text": "Built a successful chain of local cafes from nothing. Understands economic challenges facing entrepreneurs and supports business-friendly policies while maintaining social responsibility.",
+			"character_archetype": "Pragmatic Entrepreneur",
+			"difficulty_rating": 5,
+			"difficulty_label": "Medium",
+			"gameplay_impact": "Business community support, economic credibility, must balance worker and owner interests",
+			"political_alignment": "Conservative",
+			"is_satirical": false
+		},
+		{
+			"id": "environmental_lawyer",
+			"display_name": "Environmental Lawyer",
+			"background_text": "Specialized in environmental law for 15 years, successfully sued major corporations for pollution violations. Brings legal expertise and green credentials to political arena.",
+			"character_archetype": "Legal Expert",
+			"difficulty_rating": 6,
+			"difficulty_label": "Medium",
+			"gameplay_impact": "Environmental movement support, legal knowledge, opposition from industrial interests",
+			"political_alignment": "Progressive",
+			"is_satirical": false
+		},
+		{
+			"id": "tech_entrepreneur",
+			"display_name": "Tech Entrepreneur",
+			"background_text": "Founded a successful fintech startup and sold it for millions. Advocates for digital innovation in government and liberal social policies combined with free-market economics.",
+			"character_archetype": "Digital Innovator",
+			"difficulty_rating": 7,
+			"difficulty_label": "Hard",
+			"gameplay_impact": "Tech sector support, innovation platform, scrutiny over wealth and business practices",
+			"political_alignment": "Libertarian",
+			"is_satirical": false
+		},
+		{
+			"id": "former_diplomat",
+			"display_name": "Former Diplomat",
+			"background_text": "Served as ambassador to Germany and led international trade negotiations. Brings foreign policy expertise and international connections but limited domestic political experience.",
+			"character_archetype": "International Expert",
+			"difficulty_rating": 8,
+			"difficulty_label": "Hard",
+			"gameplay_impact": "Foreign policy expertise, international credibility, must establish domestic base",
+			"political_alignment": "Centrist",
+			"is_satirical": false
+		},
+		{
+			"id": "reality_tv_personality",
+			"display_name": "Reality TV Personality",
+			"background_text": "Became famous on a popular reality show about Dutch entrepreneurs. Has name recognition and social media following but zero political experience. Critics question their seriousness.",
+			"character_archetype": "Celebrity Outsider",
+			"difficulty_rating": 2,
+			"difficulty_label": "Easy",
+			"gameplay_impact": "High name recognition, social media savvy, credibility challenges with serious voters",
+			"political_alignment": "Populist",
+			"is_satirical": true
+		},
+		{
+			"id": "retired_general",
+			"display_name": "Retired General",
+			"background_text": "Distinguished military career including NATO peacekeeping missions. Advocates for strong defense, law and order, and traditional values. Popular with older voters and security-minded citizens.",
+			"character_archetype": "Military Leader",
+			"difficulty_rating": 9,
+			"difficulty_label": "Very Hard",
+			"gameplay_impact": "Security credentials, discipline, must navigate civilian politics and diverse coalitions",
+			"political_alignment": "Conservative",
+			"is_satirical": false
+		},
+		{
+			"id": "influencer_philosopher",
+			"display_name": "Social Media Philosopher",
+			"background_text": "Gained millions of followers by explaining complex political theories through viral TikTok videos. Young voters love their accessible approach to philosophy, but traditional politicians dismiss them as a joke.",
+			"character_archetype": "Digital Native",
+			"difficulty_rating": 10,
+			"difficulty_label": "Expert",
+			"gameplay_impact": "Massive youth following, unconventional methods, establishment resistance and media skepticism",
+			"political_alignment": "Populist",
+			"is_satirical": true
+		}
+	]
+
+	# Create preset objects
+	var preset_options = []
+	for data in preset_data:
+		var preset = PresetOption.new()
+		preset.id = data["id"]
+		preset.display_name = data["display_name"]
+		preset.background_text = data["background_text"]
+		preset.character_archetype = data["character_archetype"]
+		preset.difficulty_rating = data["difficulty_rating"]
+		preset.difficulty_label = data["difficulty_label"]
+		preset.gameplay_impact = data["gameplay_impact"]
+		preset.political_alignment = data["political_alignment"]
+		preset.is_satirical = data["is_satirical"]
+		preset_options.append(preset)
+
+	presets.preset_options = preset_options
+
+	# Save the resource
+	var save_path = "res://assets/data/CharacterBackgroundPresets.tres"
+	var error = ResourceSaver.save(presets, save_path)
+
+	if error == OK:
+		print("✅ Successfully created preset resource at: ", save_path)
+		print("✅ Created ", preset_options.size(), " presets")
+	else:
+		print("❌ Failed to save preset resource: ", error)
+
+	return error == OK
+
+# Call this function to recreate the resource
+static func run():
+	return create_preset_resource()

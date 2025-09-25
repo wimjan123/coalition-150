@@ -14,12 +14,12 @@ func before_each():
 	# Initialize performance monitoring
 	preset_loading_times.clear()
 	ui_update_times.clear()
-	memory_usage_start = OS.get_static_memory_usage_by_type()[OS.MEMORY_STATIC_MAX]
+	memory_usage_start = OS.get_static_memory_usage()
 	gut.p("Starting performance validation tests...")
 
 func after_each():
 	# Clean up and report memory usage
-	var memory_usage_end = OS.get_static_memory_usage_by_type()[OS.MEMORY_STATIC_MAX]
+	var memory_usage_end = OS.get_static_memory_usage()
 	var memory_diff = memory_usage_end - memory_usage_start
 	gut.p("Memory usage change: " + str(memory_diff) + " bytes")
 
@@ -148,7 +148,7 @@ func test_memory_usage_validation():
 	gut.p("Testing memory usage for preset system...")
 
 	# Baseline memory usage
-	memory_usage_start = OS.get_static_memory_usage_by_type()[OS.MEMORY_STATIC_MAX]
+	memory_usage_start = OS.get_static_memory_usage()
 	gut.p("Baseline memory usage: " + str(memory_usage_start) + " bytes")
 
 	var preset_path = "res://assets/data/CharacterBackgroundPresets.tres"
@@ -168,7 +168,7 @@ func test_memory_usage_validation():
 			preset_instances.append(preset_resource)
 
 		# Track peak memory usage
-		var current_memory = OS.get_static_memory_usage_by_type()[OS.MEMORY_STATIC_MAX]
+		var current_memory = OS.get_static_memory_usage()
 		if current_memory > memory_usage_peak:
 			memory_usage_peak = current_memory
 

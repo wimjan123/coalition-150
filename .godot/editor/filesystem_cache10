@@ -1,6 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1758821210
+::res://::1758822161
 CLAUDE.md::TextFile::-1::1758813751::0::1::::<><><>0<>0<><>::
+debug_presets.gd::GDScript::8567697039439287130::1758821316::0::1::::<>RefCounted<><>0<>0<><>::
 IMPLEMENTATION_SUMMARY.md::TextFile::-1::1758810022::0::1::::<><><>0<>0<><>::
 ::res://addons/::1758810022
 ::res://addons/gut/::1758810022
@@ -48,8 +49,8 @@ TransitionConfig.gd::GDScript::4080944384155855241::1758810022::0::1::::Transiti
 LaunchScreenIntegration.gd::GDScript::3677014475108723204::1758810022::0::1::::LaunchScreenIntegration<>Node<><>0<>0<><>::
 ::res://scripts/main/::1758810022
 MainMenu.gd::GDScript::8420763169054721935::1758810022::0::1::::<>Control<><>0<>0<><>::
-::res://scripts/player/::1758820035
-CharacterPartyCreation.gd::GDScript::2361809581907679816::1758820035::0::1::::<>Control<><>0<>0<><>::
+::res://scripts/player/::1758821379
+CharacterPartyCreation.gd::GDScript::2361809581907679816::1758821379::0::1::::<>Control<><>0<>0<><>::
 CharacterPartySelection.gd::GDScript::1461703728933851282::1758810022::0::1::::<>Control<><>0<>0<><>::
 InterviewQuestionGenerator.gd::GDScript::2940978945401500737::1758810022::0::1::::InterviewQuestionGenerator<>RefCounted<><>0<>0<><>::
 MediaInterview.gd::GDScript::4023757302897275343::1758810022::0::1::::<>Control<><>0<>0<><>::

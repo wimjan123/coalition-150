@@ -93,7 +93,7 @@ static func _benchmark_ui_performance(metrics: PerformanceMetrics) -> void:
 
 static func _benchmark_memory_usage(metrics: PerformanceMetrics) -> void:
 	"""Benchmark memory usage of preset system"""
-	var baseline_memory = OS.get_static_memory_usage_by_type()[OS.MEMORY_STATIC_MAX]
+	var baseline_memory = OS.get_static_memory_usage()
 
 	var preset_path = "res://assets/data/CharacterBackgroundPresets.tres"
 	if not ResourceLoader.exists(preset_path):
@@ -105,7 +105,7 @@ static func _benchmark_memory_usage(metrics: PerformanceMetrics) -> void:
 		var preset_resource = load(preset_path)
 		instances.append(preset_resource)
 
-	var peak_memory = OS.get_static_memory_usage_by_type()[OS.MEMORY_STATIC_MAX]
+	var peak_memory = OS.get_static_memory_usage()
 	metrics.memory_usage = peak_memory - baseline_memory
 
 	# Clean up

@@ -75,7 +75,7 @@ func _validate_responsive_design(launch_screen: LaunchScreen) -> void:
 	ui_validation_results["proper_anchoring"] = _check_anchor_setup(launch_screen)
 
 	# Check scaling behavior
-	ui_validation_results["scales_properly"] = _test_scaling_behavior(launch_screen)
+	ui_validation_results["scales_properly"] = await _test_scaling_behavior(launch_screen)
 
 # Helper validation methods
 func _check_styling_consistency(launch_screen: LaunchScreen) -> bool:

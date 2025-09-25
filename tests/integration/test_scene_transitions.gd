@@ -250,7 +250,7 @@ func test_rapid_scene_transitions():
 func test_memory_usage_during_transitions():
 	"""Test that memory usage remains reasonable during transitions"""
 	# Get baseline memory usage
-	var initial_memory: int = OS.get_static_memory_usage_by_type()
+	var initial_memory: int = OS.get_static_memory_usage()
 
 	# Perform multiple transitions
 	for i in range(10):
@@ -263,7 +263,7 @@ func test_memory_usage_during_transitions():
 			await get_tree().process_frame
 			OS.low_processor_usage_mode = false
 
-	var final_memory: int = OS.get_static_memory_usage_by_type()
+	var final_memory: int = OS.get_static_memory_usage()
 	var memory_increase: int = final_memory - initial_memory
 
 	# Memory increase should be reasonable (less than 10MB)
