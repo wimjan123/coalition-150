@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Interview Data Schema",
+  "type": "object",
+  "required": ["version", "questions", "fallback_questions"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the interview data format"
+    },
+    "questions": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_]+$": {
+          "$ref": "#/definitions/question"
+        }
+      },
+      "minProperties": 1,
+      "description": "Map of question IDs to question objects"
+    },
+    "fallback_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Array of question IDs that serve as generic fallbacks"
+    }
+  },
+  "definitions": {
+    "question": {
+      "type": "object",
+      "required": ["text", "tags", "is_fallback", "answers"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "The question text displayed to the player"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]+$"
+          },
+          "description": "Tags for matching against player presets"
+        },
+        "is_fallback": {
+          "type": "boolean",
+          "description": "Whether this question can be used as a generic fallback"
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/answer"
+          },
+          "minItems": 2,
+          "maxItems": 5,
+          "description": "Available answer choices for this question"
+        }
+      }
+    },
+    "answer": {
+      "type": "object",
+      "required": ["text", "effects"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "The answer text displayed to the player"
+        },
+        "effects": {
+          "$ref": "#/definitions/effects",
+          "description": "Game state changes to apply when this answer is selected"
+        },
+        "next_question_id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_]+$",
+          "description": "ID of the next question (optional for interview termination)"
+        }
+      }
+    },
+    "effects": {
+      "type": "object",
+      "properties": {
+        "stats": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z_]+$": {
+              "type": "integer",
+              "minimum": -10,
+              "maximum": 10
+            }
+          },
+          "description": "Stat modifications (key: stat_name, value: change_amount)"
+        },
+        "flags": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z_]+$": {
+              "type": "boolean"
+            }
+          },
+          "description": "Boolean flags to set (key: flag_name, value: true/false)"
+        },
+        "unlocks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]+$"
+          },
+          "description": "Content unlocks to grant (e.g., items, paths, dialogue options)"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
