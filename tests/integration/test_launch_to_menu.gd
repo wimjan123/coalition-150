@@ -104,7 +104,7 @@ func test_memory_cleanup():
 	# Test: Proper resource cleanup after scene transition
 	# This will fail until cleanup logic exists
 
-	var initial_memory = OS.get_static_memory_usage_by_type()
+	var initial_memory = OS.get_static_memory_usage()
 
 	add_child(launch_screen)
 	launch_screen.complete_loading_immediately()
@@ -112,10 +112,10 @@ func test_memory_cleanup():
 	# Wait for transition and cleanup
 	await wait_seconds(3)
 
-	var final_memory = OS.get_static_memory_usage_by_type()
+	var final_memory = OS.get_static_memory_usage()
 
 	# Memory usage should not increase significantly (< 10MB growth allowed)
-	var memory_growth = final_memory.total - initial_memory.total
+	var memory_growth = final_memory - initial_memory
 	assert_lt(memory_growth, 10 * 1024 * 1024, "Memory growth should be less than 10MB")
 
 func test_input_blocking():

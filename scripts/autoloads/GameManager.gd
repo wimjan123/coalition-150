@@ -143,9 +143,9 @@ func _update_performance_metrics() -> void:
 	# FPS monitoring
 	performance_metrics.fps_current = Engine.get_frames_per_second()
 
-	# Memory monitoring
-	var memory_usage = OS.get_static_memory_usage_by_type()
-	performance_metrics.memory_usage_mb = memory_usage.total / (1024 * 1024)
+	# Memory monitoring (using available Godot 4.5 methods)
+	var memory_usage = OS.get_static_memory_usage()
+	performance_metrics.memory_usage_mb = memory_usage / (1024 * 1024)
 
 	# Performance warnings
 	if performance_metrics.fps_current < 55.0:

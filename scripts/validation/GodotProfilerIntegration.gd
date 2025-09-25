@@ -57,8 +57,8 @@ func _collect_performance_sample() -> void:
 	profiling_data.fps_samples.append(current_fps)
 
 	# Collect memory usage
-	var memory_usage = OS.get_static_memory_usage_by_type()
-	var memory_mb = memory_usage.total / (1024 * 1024)
+	var memory_usage = OS.get_static_memory_usage()
+	var memory_mb = memory_usage / (1024 * 1024)
 	profiling_data.memory_samples.append(memory_mb)
 
 	# Collect frame time
@@ -185,7 +185,7 @@ func stop_profiling() -> Dictionary:
 func print_real_time_stats() -> void:
 	print("=== Real-time Performance Stats ===")
 	print("Current FPS: ", Engine.get_frames_per_second())
-	print("Memory Usage: ", OS.get_static_memory_usage_by_type().total / (1024 * 1024), "MB")
+	print("Memory Usage: ", OS.get_static_memory_usage() / (1024 * 1024), "MB")
 	print("Frame Time: ", Performance.get_monitor(Performance.TIME_PROCESS), "ms")
 
 func export_profiling_data(file_path: String) -> void:

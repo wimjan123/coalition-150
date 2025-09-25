@@ -166,8 +166,8 @@ func _update_transition_progress(progress: float) -> void:
 
 # Memory management
 func check_memory_usage() -> void:
-	var memory_usage = OS.get_static_memory_usage_by_type()
-	var total_mb = memory_usage.total / (1024 * 1024)
+	var memory_usage = OS.get_static_memory_usage()
+	var total_mb = memory_usage / (1024 * 1024)
 
 	if total_mb > memory_threshold_mb:
 		print("Memory usage high (", total_mb, "MB), clearing preloaded scenes")
