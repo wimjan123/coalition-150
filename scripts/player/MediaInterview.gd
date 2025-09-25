@@ -23,6 +23,13 @@ var interview_responses: Array[InterviewResponse] = []
 var selected_answer_index: int = -1
 var question_generator: InterviewQuestionGenerator = null
 
+# Signals for interview flow and navigation
+signal interview_started(character: CharacterData)
+signal question_answered(question_index: int, answer_text: String)
+signal interview_completed(responses: Array[InterviewResponse])
+signal proceed_to_main_game_requested()
+signal return_to_creation_requested()
+
 func _ready() -> void:
 	question_generator = InterviewQuestionGenerator.new()
 	_setup_ui()

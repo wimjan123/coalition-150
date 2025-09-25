@@ -26,6 +26,13 @@ var character_data: CharacterData = CharacterData.new()
 var party_data: PartyData = PartyData.new()
 var selected_logo_index: int = 0
 
+# Signals for navigation and state management
+signal character_creation_completed(character: CharacterData)
+signal party_creation_completed(party: PartyData)
+signal return_to_selection_requested()
+signal validation_failed(message: String)
+signal proceed_to_interview_requested(character: CharacterData)
+
 func _ready() -> void:
 	_setup_ui()
 	_connect_signals()
