@@ -2,7 +2,20 @@
 # Handles threaded asset loading with progress tracking and retry logic
 
 class_name AssetLoader
-extends AssetLoaderInterface
+extends Node
+
+# AssetLoaderInterface signals
+signal asset_loaded(asset_path: String, success: bool)
+signal progress_updated(progress: float, assets_loaded: int, total_assets: int)
+signal loading_completed(success: bool)
+signal retry_started(attempt: int)
+signal loading_failed(final_error: String)
+
+# Configuration properties (from AssetLoaderInterface)
+@export var max_retries: int = 3
+@export var asset_timeout: float = 2.0
+@export var use_threading: bool = true
+@export var preload_resources: bool = false
 
 # Loading state management
 var loading_queue: Array[AssetItem] = []
@@ -156,6 +169,29 @@ func _update_loading_progress() -> void:
 
 func _compare_priority(a: AssetItem, b: AssetItem) -> bool:
 	return a.load_priority < b.load_priority  # Lower number = higher priority
+
+# AssetLoaderInterface validation methods
+func validate_asset_path(asset_path: String) -> bool:
+	if not asset_path.begins_with("res://"):
+		push_error("Asset path must start with 'res://': " + asset_path)
+		return false
+
+	if not ResourceLoader.exists(asset_path):
+		push_error("Asset does not exist: " + asset_path)
+		return false
+
+	return true
+
+func validate_config() -> bool:
+	if max_retries < 0 or max_retries > 10:
+		push_error("max_retries must be between 0 and 10")
+		return false
+
+	if asset_timeout <= 0.0:
+		push_error("asset_timeout must be positive")
+		return false
+
+	return true
 
 # Debug methods for testing
 func simulate_slow_loading(delay_seconds: float) -> void:
