@@ -174,3 +174,22 @@ func migrate_from_legacy_backstory(preset_id: String) -> void:
 		# Keep the original backstory for reference but preset takes precedence
 		emit_changed()
 		print("✓ Migrated legacy character to preset system: ", preset_id)
+
+func get_political_alignment() -> String:
+	"""Get character's political alignment based on party or policies"""
+	# If character has a party, use party alignment
+	if party and party.has_method("get_political_alignment"):
+		return party.get_political_alignment()
+
+	# Otherwise, infer from policy positions or default
+	if policy_positions.has("economic_policy"):
+		var economic_stance = policy_positions["economic_policy"].to_lower()
+		if economic_stance.contains("progressive") or economic_stance.contains("left"):
+			return "progressive"
+		elif economic_stance.contains("conservative") or economic_stance.contains("right"):
+			return "conservative"
+		elif economic_stance.contains("centrist") or economic_stance.contains("moderate"):
+			return "centrist"
+
+	# Default alignment if no specific information available
+	return "centrist"
