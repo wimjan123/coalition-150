@@ -1,0 +1,196 @@
+{
+  "version": "1.0.0",
+  "questions": {
+    "q001": {
+      "text": "What motivates your character most in their adventures?",
+      "tags": ["warrior", "noble"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Honor and duty above all else",
+          "effects": {
+            "stats": {"honor": 2, "courage": 1},
+            "flags": {"honorable_path": true},
+            "unlocks": ["noble_dialogue"]
+          },
+          "next_question_id": "q002_honor"
+        },
+        {
+          "text": "Personal gain and survival",
+          "effects": {
+            "stats": {"pragmatism": 2, "cunning": 1},
+            "flags": {"pragmatic_path": true},
+            "unlocks": ["merchant_dialogue"]
+          },
+          "next_question_id": "q002_pragmatic"
+        },
+        {
+          "text": "Knowledge and understanding",
+          "effects": {
+            "stats": {"intelligence": 2, "wisdom": 1},
+            "flags": {"scholar_path": true},
+            "unlocks": ["scholar_dialogue"]
+          },
+          "next_question_id": "q002_scholar"
+        }
+      ]
+    },
+    "q002_honor": {
+      "text": "Your party faces a moral dilemma. How do you lead them?",
+      "tags": ["noble", "warrior"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Stand firm on principles, whatever the cost",
+          "effects": {
+            "stats": {"honor": 1, "leadership": 2},
+            "flags": {"unwavering_leader": true}
+          },
+          "next_question_id": "q003_final"
+        },
+        {
+          "text": "Find a compromise that satisfies everyone",
+          "effects": {
+            "stats": {"diplomacy": 2, "wisdom": 1},
+            "flags": {"diplomatic_leader": true}
+          },
+          "next_question_id": "q003_final"
+        }
+      ]
+    },
+    "q002_pragmatic": {
+      "text": "You discover a valuable resource. What's your approach?",
+      "tags": ["merchant", "rogue"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Secure it immediately for maximum profit",
+          "effects": {
+            "stats": {"cunning": 2, "greed": 1},
+            "flags": {"opportunist": true}
+          },
+          "next_question_id": "q003_final"
+        },
+        {
+          "text": "Share the discovery with your allies",
+          "effects": {
+            "stats": {"charisma": 2, "loyalty": 1},
+            "flags": {"team_player": true}
+          },
+          "next_question_id": "q003_final"
+        }
+      ]
+    },
+    "q002_scholar": {
+      "text": "Ancient knowledge conflicts with current beliefs. Your response?",
+      "tags": ["mage", "scholar"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Truth must be preserved, regardless of comfort",
+          "effects": {
+            "stats": {"intelligence": 2, "determination": 1},
+            "flags": {"truth_seeker": true}
+          },
+          "next_question_id": "q003_final"
+        },
+        {
+          "text": "Some knowledge is too dangerous to share",
+          "effects": {
+            "stats": {"wisdom": 2, "caution": 1},
+            "flags": {"keeper_of_secrets": true}
+          },
+          "next_question_id": "q003_final"
+        }
+      ]
+    },
+    "q003_final": {
+      "text": "As your journey begins, what do you hope to achieve?",
+      "tags": ["universal"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Leave a lasting legacy",
+          "effects": {
+            "stats": {"ambition": 2},
+            "flags": {"legacy_seeker": true}
+          }
+        },
+        {
+          "text": "Protect those who cannot protect themselves",
+          "effects": {
+            "stats": {"compassion": 2},
+            "flags": {"protector": true}
+          }
+        },
+        {
+          "text": "Uncover the mysteries of this world",
+          "effects": {
+            "stats": {"curiosity": 2},
+            "flags": {"explorer": true}
+          }
+        }
+      ]
+    },
+    "q_fallback_01": {
+      "text": "How do you typically handle unexpected challenges?",
+      "tags": [],
+      "is_fallback": true,
+      "answers": [
+        {
+          "text": "Face them head-on with determination",
+          "effects": {
+            "stats": {"bravery": 1, "determination": 1},
+            "flags": {"bold_approach": true}
+          },
+          "next_question_id": "q_fallback_02"
+        },
+        {
+          "text": "Think carefully before taking action",
+          "effects": {
+            "stats": {"wisdom": 1, "patience": 1},
+            "flags": {"thoughtful_approach": true}
+          },
+          "next_question_id": "q_fallback_02"
+        },
+        {
+          "text": "Adapt quickly to the situation",
+          "effects": {
+            "stats": {"adaptability": 1, "cunning": 1},
+            "flags": {"flexible_approach": true}
+          },
+          "next_question_id": "q_fallback_02"
+        }
+      ]
+    },
+    "q_fallback_02": {
+      "text": "What quality do you value most in companions?",
+      "tags": [],
+      "is_fallback": true,
+      "answers": [
+        {
+          "text": "Unwavering loyalty",
+          "effects": {
+            "stats": {"loyalty": 2},
+            "flags": {"values_loyalty": true}
+          }
+        },
+        {
+          "text": "Sharp intellect",
+          "effects": {
+            "stats": {"intelligence": 2},
+            "flags": {"values_intelligence": true}
+          }
+        },
+        {
+          "text": "Kind heart",
+          "effects": {
+            "stats": {"compassion": 2},
+            "flags": {"values_compassion": true}
+          }
+        }
+      ]
+    }
+  },
+  "fallback_questions": ["q_fallback_01", "q_fallback_02"]
+}

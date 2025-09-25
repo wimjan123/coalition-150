@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "questions": {
+    "malformed_q1": {
+      "text": "Missing closing brace",
+      "tags": ["test"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Answer",
+          "effects": {
+            "stats": {"test": 1}
+          }
+        }
+      ]

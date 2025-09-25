@@ -1,0 +1,24 @@
+{
+  "config_version": 1,
+  "dirs": [
+    "res://tests/"
+  ],
+  "disable_orphans": false,
+  "log_level": 1,
+  "ignore_pause": true,
+  "hide_result_tree": false,
+  "compact_mode": false,
+  "junit_xml_file": "",
+  "junit_xml_timestamp": false,
+  "post_run_script": "",
+  "pre_run_script": "",
+  "prefix": "test_",
+  "selected": "",
+  "should_exit": true,
+  "should_exit_on_success": false,
+  "should_maximize": false,
+  "show_help": false,
+  "suffix": ".gd",
+  "tests": [],
+  "unit_test_name": ""
+}

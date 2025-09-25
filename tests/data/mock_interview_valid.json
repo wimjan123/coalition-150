@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "questions": {
+    "test_q1": {
+      "text": "Test question 1",
+      "tags": ["test_tag"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Answer 1",
+          "effects": {
+            "stats": {"test_stat": 1},
+            "flags": {"test_flag": true},
+            "unlocks": ["test_unlock"]
+          },
+          "next_question_id": "test_q2"
+        },
+        {
+          "text": "Answer 2",
+          "effects": {
+            "stats": {"test_stat": -1}
+          }
+        }
+      ]
+    },
+    "test_q2": {
+      "text": "Test question 2",
+      "tags": ["test_tag"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Final answer",
+          "effects": {
+            "stats": {"final_stat": 1}
+          }
+        }
+      ]
+    },
+    "fallback_q1": {
+      "text": "Fallback question",
+      "tags": [],
+      "is_fallback": true,
+      "answers": [
+        {
+          "text": "Generic answer",
+          "effects": {
+            "stats": {"generic_stat": 1}
+          }
+        }
+      ]
+    }
+  },
+  "fallback_questions": ["fallback_q1"]
+}

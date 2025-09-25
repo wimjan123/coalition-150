@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "questions": {
+    "broken_q1": {
+      "text": "Question with broken reference",
+      "tags": ["test"],
+      "is_fallback": false,
+      "answers": [
+        {
+          "text": "Answer pointing to non-existent question",
+          "effects": {
+            "stats": {"test": 1}
+          },
+          "next_question_id": "non_existent_question"
+        }
+      ]
+    }
+  },
+  "fallback_questions": ["also_non_existent"]
+}
