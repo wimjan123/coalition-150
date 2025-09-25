@@ -58,35 +58,85 @@ func _load_preset_collection() -> void:
 	"""Load the character background presets from the resource file"""
 	var preset_resource_path = "res://assets/data/CharacterBackgroundPresets.tres"
 
+	print("🔍 Attempting to load presets from: ", preset_resource_path)
+	print("🔍 Resource exists: ", ResourceLoader.exists(preset_resource_path))
+
 	if ResourceLoader.exists(preset_resource_path):
-		background_presets = load(preset_resource_path) as CharacterBackgroundPresets
-		if background_presets and background_presets.is_valid():
-			print("✓ Loaded ", background_presets.preset_options.size(), " character background presets")
+		var resource = load(preset_resource_path)
+		print("🔍 Raw resource loaded: ", resource != null)
+		print("🔍 Resource type: ", resource.get_class() if resource else "null")
+
+		# Try direct cast
+		background_presets = resource as CharacterBackgroundPresets
+		print("🔍 Cast to CharacterBackgroundPresets: ", background_presets != null)
+
+		if background_presets:
+			print("🔍 Preset options array size: ", background_presets.preset_options.size())
+			print("🔍 Collection version: ", background_presets.version)
+
+			# Check validity
+			if background_presets.is_valid():
+				print("✅ Successfully loaded ", background_presets.preset_options.size(), " character background presets")
+				return
+			else:
+				print("⚠️  Preset collection validation failed")
 		else:
-			push_error("Invalid preset collection loaded from " + preset_resource_path)
-			_create_fallback_presets()
+			print("❌ Failed to cast resource to CharacterBackgroundPresets")
 	else:
-		push_error("Preset resource not found at " + preset_resource_path)
-		_create_fallback_presets()
+		print("❌ Preset resource file not found")
+
+	print("🔄 Creating fallback presets...")
+	_create_fallback_presets()
 
 func _create_fallback_presets() -> void:
 	"""Create minimal fallback presets if resource loading fails"""
 	background_presets = CharacterBackgroundPresets.new()
 
-	# Create a single fallback preset
-	var fallback_preset = PresetOption.new()
-	fallback_preset.id = "fallback_default"
-	fallback_preset.display_name = "Political Newcomer"
-	fallback_preset.background_text = "A concerned citizen entering politics for the first time"
-	fallback_preset.character_archetype = "Citizen"
-	fallback_preset.difficulty_rating = 5
-	fallback_preset.difficulty_label = "Medium"
-	fallback_preset.gameplay_impact = "Balanced difficulty for new players"
-	fallback_preset.political_alignment = "Centrist"
-	fallback_preset.is_satirical = false
+	# Create multiple fallback presets for testing
+	var presets = []
 
-	background_presets.preset_options = [fallback_preset]
-	push_warning("Using fallback preset due to resource loading failure")
+	# Fallback 1: Easy
+	var preset1 = PresetOption.new()
+	preset1.id = "fallback_easy"
+	preset1.display_name = "Student Activist"
+	preset1.background_text = "A passionate university student organizing protests"
+	preset1.character_archetype = "Grassroots Organizer"
+	preset1.difficulty_rating = 1
+	preset1.difficulty_label = "Very Easy"
+	preset1.gameplay_impact = "High energy, limited experience"
+	preset1.political_alignment = "Progressive"
+	preset1.is_satirical = false
+	presets.append(preset1)
+
+	# Fallback 2: Medium
+	var preset2 = PresetOption.new()
+	preset2.id = "fallback_medium"
+	preset2.display_name = "Local Councillor"
+	preset2.background_text = "Experienced in municipal politics"
+	preset2.character_archetype = "Career Politician"
+	preset2.difficulty_rating = 5
+	preset2.difficulty_label = "Medium"
+	preset2.gameplay_impact = "Balanced experience and connections"
+	preset2.political_alignment = "Centrist"
+	preset2.is_satirical = false
+	presets.append(preset2)
+
+	# Fallback 3: Hard
+	var preset3 = PresetOption.new()
+	preset3.id = "fallback_hard"
+	preset3.display_name = "Tech Entrepreneur"
+	preset3.background_text = "Successful business owner entering politics"
+	preset3.character_archetype = "Digital Innovator"
+	preset3.difficulty_rating = 8
+	preset3.difficulty_label = "Hard"
+	preset3.gameplay_impact = "High scrutiny, innovative platform"
+	preset3.political_alignment = "Libertarian"
+	preset3.is_satirical = false
+	presets.append(preset3)
+
+	background_presets.preset_options = presets
+	background_presets.version = "fallback"
+	print("⚠️  Using ", presets.size(), " fallback presets due to resource loading failure")
 
 func _setup_ui() -> void:
 	# Apply theme
