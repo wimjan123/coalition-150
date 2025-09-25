@@ -42,7 +42,7 @@ func add_asset(asset_path: String, priority: int = 5) -> void:
 	loading_queue.append(asset_item)
 	loading_queue.sort_custom(_compare_priority)
 
-	print("Added asset: ", asset_item.to_string())
+	print("Added asset: ", asset_item.get_asset_description())
 
 func start_loading() -> void:
 	if loading_queue.is_empty():

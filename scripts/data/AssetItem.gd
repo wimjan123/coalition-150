@@ -110,5 +110,5 @@ func get_priority_string() -> String:
 		9, 10: return "Lowest"
 		_: return "Unknown"
 
-func to_string() -> String:
+func get_asset_description() -> String:
 	return "[%s] %s (Priority: %d, Size: %dKB)" % [get_type_string(), resource_path, load_priority, file_size_kb]

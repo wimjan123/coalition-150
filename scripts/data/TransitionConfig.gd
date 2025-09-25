@@ -123,7 +123,7 @@ func get_target_scene_name() -> String:
 		return "None"
 	return target_scene_path.get_file().get_basename()
 
-func to_string() -> String:
+func get_transition_description() -> String:
 	return "[%s] %s → %s (%.1fs)" % [
 		get_transition_type_string(),
 		get_fade_color_string(),
