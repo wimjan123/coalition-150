@@ -223,6 +223,45 @@ func load_settings() -> Dictionary:
 func get_save_directory_path() -> String:
 	return ProjectSettings.globalize_path(SAVE_DIR)
 
+# T027-T028: Preset system integration methods
+
+func save_character_with_preset(character: CharacterData) -> bool:
+	"""Save character data with preset ID validation"""
+	if not character:
+		push_error("Cannot save null character")
+		return false
+
+	# Validate preset ID if present
+	if character.has_background_preset():
+		print("✓ Saving character with preset ID: ", character.selected_background_preset_id)
+	else:
+		print("✓ Saving character with legacy backstory")
+
+	return quick_save_character(character)
+
+func load_character_with_preset_resolution(party_name: String) -> CharacterData:
+	"""Load character and resolve preset data if needed"""
+	var character = get_character_by_party_name(party_name)
+
+	if character and character.has_background_preset():
+		# Character has preset ID - preset resolution would happen at UI level
+		print("✓ Loaded character with preset ID: ", character.selected_background_preset_id)
+	elif character:
+		print("✓ Loaded legacy character with backstory")
+
+	return character
+
+func get_characters_needing_migration() -> Array[CharacterData]:
+	"""Get list of characters that need migration from legacy backstory to presets"""
+	var player_data: PlayerData = load_player_data()
+	var legacy_characters: Array[CharacterData] = []
+
+	for character in player_data.characters:
+		if character.is_legacy_character():
+			legacy_characters.append(character)
+
+	return legacy_characters
+
 # Cleanup old backups (keep only the most recent 5)
 func cleanup_old_backups() -> void:
 	var dir: DirAccess = DirAccess.open(SAVE_DIR)

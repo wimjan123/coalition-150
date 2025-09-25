@@ -13,8 +13,11 @@ extends Resource
 # Policy positions as key-value pairs (area -> stance)
 @export var policy_positions: Dictionary = {}
 
-# Character's personal backstory
+# Character's personal backstory (legacy - use selected_background_preset_id for new characters)
 @export var backstory: String = ""
+
+# Selected background preset ID (preferred over free-text backstory)
+@export var selected_background_preset_id: String = ""
 
 # Associated political party
 @export var party: PartyData = null
@@ -90,8 +93,9 @@ func validate() -> bool:
 		push_error("Political experience is required")
 		return false
 
-	if backstory.is_empty():
-		push_error("Backstory is required")
+	# Validate background (either preset ID or legacy backstory)
+	if selected_background_preset_id.is_empty() and backstory.is_empty():
+		push_error("Character background is required (either preset or backstory)")
 		return false
 
 	# Validate party if present
@@ -123,7 +127,50 @@ func get_political_profile() -> Dictionary:
 		"name": character_name,
 		"experience": political_experience,
 		"policies": policy_positions,
-		"backstory": backstory,
+		"backstory": get_effective_backstory(),  # Use effective backstory
+		"preset_id": selected_background_preset_id,
 		"party_name": party.party_name if party else "",
 		"interview_complete": has_completed_interview()
 	}
+
+## Preset system support methods (T026)
+
+func set_selected_background_preset_id(preset_id: String) -> void:
+	"""Set the selected background preset ID"""
+	selected_background_preset_id = preset_id
+	emit_changed()
+
+func get_selected_background_preset_id() -> String:
+	"""Get the selected background preset ID"""
+	return selected_background_preset_id
+
+func has_background_preset() -> bool:
+	"""Check if character has a background preset selected"""
+	return not selected_background_preset_id.is_empty()
+
+func clear_background_preset() -> void:
+	"""Clear the selected background preset"""
+	selected_background_preset_id = ""
+	emit_changed()
+
+func get_effective_backstory() -> String:
+	"""Get the effective backstory (from preset if available, otherwise legacy backstory)"""
+	# If we have a preset ID, that takes precedence
+	# In a full implementation, this would load the preset and return its background_text
+	# For now, fall back to legacy backstory
+	if not selected_background_preset_id.is_empty():
+		# TODO: In full implementation, load preset and return background_text
+		return backstory  # Temporary fallback
+	return backstory
+
+func is_legacy_character() -> bool:
+	"""Check if this is a legacy character (has backstory but no preset ID)"""
+	return selected_background_preset_id.is_empty() and not backstory.is_empty()
+
+func migrate_from_legacy_backstory(preset_id: String) -> void:
+	"""Migrate legacy character to use preset system"""
+	if is_legacy_character():
+		selected_background_preset_id = preset_id
+		# Keep the original backstory for reference but preset takes precedence
+		emit_changed()
+		print("✓ Migrated legacy character to preset system: ", preset_id)

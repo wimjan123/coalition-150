@@ -76,17 +76,67 @@ text = "Political Experience *"
 layout_mode = 2
 placeholder_text = "e.g., Mayor, City Councilor, Activist"
 
-[node name="BackstoryGroup" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection"]
+[node name="BackgroundGroup" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection"]
 layout_mode = 2
 
-[node name="BackstoryLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackstoryGroup"]
+[node name="BackgroundLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup"]
 layout_mode = 2
-text = "Personal Backstory *"
+text = "Character Background *"
 
-[node name="BackstoryTextEdit" type="TextEdit" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackstoryGroup"]
+[node name="BackgroundOptionButton" type="OptionButton" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 100)
-placeholder_text = "Describe your character's background and motivations"
+custom_minimum_size = Vector2(0, 50)
+text = "Select Background..."
+selected = -1
+
+[node name="PreviewContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 120)
+modulate = Color(0.9, 0.9, 0.9, 1)
+visible = false
+
+[node name="PreviewTitle" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer"]
+layout_mode = 2
+text = "Background Preview:"
+theme_type_variation = &"HeaderSmall"
+
+[node name="DifficultyContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer"]
+layout_mode = 2
+
+[node name="DifficultyTitleLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer/DifficultyContainer"]
+layout_mode = 2
+text = "Difficulty:"
+custom_minimum_size = Vector2(80, 0)
+
+[node name="DifficultyLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer/DifficultyContainer"]
+layout_mode = 2
+text = "-"
+theme_type_variation = &"Bold"
+
+[node name="ArchetypeContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer"]
+layout_mode = 2
+
+[node name="ArchetypeTitleLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer/ArchetypeContainer"]
+layout_mode = 2
+text = "Archetype:"
+custom_minimum_size = Vector2(80, 0)
+
+[node name="ArchetypeLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer/ArchetypeContainer"]
+layout_mode = 2
+text = "-"
+theme_type_variation = &"Bold"
+
+[node name="ImpactLabel" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer"]
+layout_mode = 2
+text = "-"
+autowrap_mode = 3
+custom_minimum_size = Vector2(0, 40)
+
+[node name="SatiricalWarning" type="Label" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer/CharacterSection/BackgroundGroup/PreviewContainer"]
+layout_mode = 2
+text = "⚠️ This is a satirical character option"
+modulate = Color(1, 0.7, 0.3, 1)
+visible = false
 
 [node name="Spacer1" type="Control" parent="MainContainer/LeftPanel/ScrollContainer/FormContainer"]
 layout_mode = 2
