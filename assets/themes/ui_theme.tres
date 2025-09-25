@@ -1,0 +1,28 @@
+[gd_resource type="Theme" format=3]
+
+[resource]
+
+# Coalition 150 UI Theme
+# Consistent styling for all UI elements
+
+# Colors
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+
+# Default font sizes
+default_font_size = 16
+
+# Title styling for launch screen
+Label/font_sizes/title_font_size = 48
+Label/colors/font_color = Color(1, 1, 1, 1)
+
+# Progress bar styling
+ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/colors/background_color = Color(0.2, 0.2, 0.2, 1)
+ProgressBar/colors/fill_color = Color(0.3, 0.7, 1, 1)
+
+# Background colors
+Panel/colors/background_color = Color(0.1, 0.1, 0.1, 1)
+ColorRect/colors/background_color = Color(0.05, 0.05, 0.15, 1)
