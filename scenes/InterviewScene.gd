@@ -141,8 +141,12 @@ func _show_completion_screen(summary: Dictionary) -> void:
 	_log_info("Interview completed: " + str(summary))
 
 func _on_completion_continue_pressed() -> void:
-	# Handle completion button press
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	# Handle completion button press - transition to main game dashboard
+	if SceneManager:
+		SceneManager.transition_to_scene("res://scenes/dashboard/main_dashboard.tscn")
+	else:
+		# Fallback to direct scene change
+		get_tree().change_scene_to_file("res://scenes/dashboard/main_dashboard.tscn")
 
 func _show_error_message(message: String) -> void:
 	# Display error message to user

@@ -204,6 +204,8 @@ func _on_scene_transition_completed(scene_path: String) -> void:
 		change_game_state(AppState.MAIN_MENU)
 	elif scene_path.contains("LaunchScreen"):
 		change_game_state(AppState.LAUNCH_SCREEN)
+	elif scene_path.contains("main_dashboard") or scene_path.contains("dashboard"):
+		change_game_state(AppState.IN_GAME)
 
 func _on_scene_transition_failed(error_message: String) -> void:
 	push_error("GameManager: Scene transition failed: " + error_message)
