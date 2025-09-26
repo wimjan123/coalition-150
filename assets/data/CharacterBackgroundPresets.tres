@@ -1,10 +1,10 @@
-[gd_resource type="CharacterBackgroundPresets" script_class="CharacterBackgroundPresets" load_steps=12 format=3]
+[gd_resource type="CharacterBackgroundPresets" script_class="CharacterBackgroundPresets" load_steps=12 format=3 uid="uid://cqgadfmg77yj7"]
 
-[ext_resource type="Script" path="res://scripts/data/CharacterBackgroundPresets.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/data/PresetOption.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/CharacterBackgroundPresets.gd" id="1_0yvd7"]
+[ext_resource type="Script" path="res://scripts/data/PresetOption.gd" id="2_v4qcb"]
 
-[sub_resource type="PresetOption" id="preset_1"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_7d8kg"]
+script = ExtResource("2_v4qcb")
 id = "student_activist"
 display_name = "Student Activist"
 background_text = "A passionate university student who organized climate protests and student union campaigns. New to formal politics but brings fresh energy and grassroots organizing experience."
@@ -15,8 +15,8 @@ gameplay_impact = "High social media reach, strong youth support, limited politi
 political_alignment = "Progressive"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_2"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_2h9jk"]
+script = ExtResource("2_v4qcb")
 id = "local_councillor"
 display_name = "Local Councillor"
 background_text = "Served three terms on the municipal council, focusing on housing policy and local business development. Knows the political process but lacks national recognition."
@@ -27,8 +27,8 @@ gameplay_impact = "Solid political foundations, established networks, moderate p
 political_alignment = "Centrist"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_3"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_8k2mq"]
+script = ExtResource("2_v4qcb")
 id = "union_leader"
 display_name = "Union Leader"
 background_text = "Led the national teachers' union through major contract negotiations and strikes. Strong connections to working-class voters but viewed with suspicion by business leaders."
@@ -39,8 +39,8 @@ gameplay_impact = "Strong labor support, experienced negotiator, challenges with
 political_alignment = "Progressive"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_4"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_9l3nr"]
+script = ExtResource("2_v4qcb")
 id = "small_business_owner"
 display_name = "Small Business Owner"
 background_text = "Built a successful chain of local cafes from nothing. Understands economic challenges facing entrepreneurs and supports business-friendly policies while maintaining social responsibility."
@@ -51,8 +51,8 @@ gameplay_impact = "Business community support, economic credibility, must balanc
 political_alignment = "Conservative"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_5"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_4o5ps"]
+script = ExtResource("2_v4qcb")
 id = "environmental_lawyer"
 display_name = "Environmental Lawyer"
 background_text = "Specialized in environmental law for 15 years, successfully sued major corporations for pollution violations. Brings legal expertise and green credentials to political arena."
@@ -63,8 +63,8 @@ gameplay_impact = "Environmental movement support, legal knowledge, opposition f
 political_alignment = "Progressive"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_6"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_6q7rt"]
+script = ExtResource("2_v4qcb")
 id = "tech_entrepreneur"
 display_name = "Tech Entrepreneur"
 background_text = "Founded a successful fintech startup and sold it for millions. Advocates for digital innovation in government and liberal social policies combined with free-market economics."
@@ -75,8 +75,8 @@ gameplay_impact = "Tech sector support, innovation platform, scrutiny over wealt
 political_alignment = "Libertarian"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_7"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_8s9tu"]
+script = ExtResource("2_v4qcb")
 id = "former_diplomat"
 display_name = "Former Diplomat"
 background_text = "Served as ambassador to Germany and led international trade negotiations. Brings foreign policy expertise and international connections but limited domestic political experience."
@@ -87,8 +87,8 @@ gameplay_impact = "Foreign policy expertise, international credibility, must est
 political_alignment = "Centrist"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_8"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_0u1vw"]
+script = ExtResource("2_v4qcb")
 id = "reality_tv_personality"
 display_name = "Reality TV Personality"
 background_text = "Became famous on a popular reality show about Dutch entrepreneurs. Has name recognition and social media following but zero political experience. Critics question their seriousness."
@@ -99,8 +99,8 @@ gameplay_impact = "High name recognition, social media savvy, credibility challe
 political_alignment = "Populist"
 is_satirical = true
 
-[sub_resource type="PresetOption" id="preset_9"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_2x3yz"]
+script = ExtResource("2_v4qcb")
 id = "retired_general"
 display_name = "Retired General"
 background_text = "Distinguished military career including NATO peacekeeping missions. Advocates for strong defense, law and order, and traditional values. Popular with older voters and security-minded citizens."
@@ -111,8 +111,8 @@ gameplay_impact = "Security credentials, discipline, must navigate civilian poli
 political_alignment = "Conservative"
 is_satirical = false
 
-[sub_resource type="PresetOption" id="preset_10"]
-script = ExtResource("2")
+[sub_resource type="Resource" id="PresetOption_4a5bc"]
+script = ExtResource("2_v4qcb")
 id = "influencer_philosopher"
 display_name = "Social Media Philosopher"
 background_text = "Gained millions of followers by explaining complex political theories through viral TikTok videos. Young voters love their accessible approach to philosophy, but traditional politicians dismiss them as a joke."
@@ -124,6 +124,6 @@ political_alignment = "Populist"
 is_satirical = true
 
 [resource]
-script = ExtResource("1")
-preset_options = Array[PresetOption]([SubResource("preset_1"), SubResource("preset_2"), SubResource("preset_3"), SubResource("preset_4"), SubResource("preset_5"), SubResource("preset_6"), SubResource("preset_7"), SubResource("preset_8"), SubResource("preset_9"), SubResource("preset_10")])
+script = ExtResource("1_0yvd7")
+preset_options = Array[Resource]([SubResource("PresetOption_7d8kg"), SubResource("PresetOption_2h9jk"), SubResource("PresetOption_8k2mq"), SubResource("PresetOption_9l3nr"), SubResource("PresetOption_4o5ps"), SubResource("PresetOption_6q7rt"), SubResource("PresetOption_8s9tu"), SubResource("PresetOption_0u1vw"), SubResource("PresetOption_2x3yz"), SubResource("PresetOption_4a5bc")])
 version = "1.0.0"
