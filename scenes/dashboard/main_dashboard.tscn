@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkm9n8v2l4p7q3r5t"]
+
+[ext_resource type="Script" path="res://scripts/dashboard/main_dashboard.gd" id="1_main_dashboard"]
+[ext_resource type="Theme" path="res://resources/ui/dashboard_theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://scenes/dashboard/components/stats_panel.tscn" id="3_stats_panel"]
+[ext_resource type="PackedScene" path="res://scenes/dashboard/components/bills_list.tscn" id="4_bills_list"]
+[ext_resource type="PackedScene" path="res://scenes/dashboard/components/calendar.tscn" id="5_calendar"]
+[ext_resource type="PackedScene" path="res://scenes/dashboard/components/news_feed.tscn" id="6_news_feed"]
+[ext_resource type="PackedScene" path="res://scenes/dashboard/components/netherlands_map.tscn" id="7_netherlands_map"]
+
+[node name="MainDashboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+script = ExtResource("1_main_dashboard")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HeaderContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Coalition Government Dashboard"
+horizontal_alignment = 1
+
+[node name="TimeControlsContainer" type="HBoxContainer" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+
+[node name="PauseButton" type="Button" parent="VBoxContainer/HeaderContainer/TimeControlsContainer"]
+layout_mode = 2
+text = "⏸ Pause"
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/HeaderContainer/TimeControlsContainer"]
+layout_mode = 2
+text = "▶ Play"
+
+[node name="FastForwardButton" type="Button" parent="VBoxContainer/HeaderContainer/TimeControlsContainer"]
+layout_mode = 2
+text = "⏩ Fast"
+
+[node name="DateTimeLabel" type="Label" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+text = "Loading..."
+
+[node name="ContentContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 300
+
+[node name="LeftPanel" type="VBoxContainer" parent="VBoxContainer/ContentContainer"]
+layout_mode = 2
+
+[node name="StatsPanel" parent="VBoxContainer/ContentContainer/LeftPanel" instance=ExtResource("3_stats_panel")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NewsFeed" parent="VBoxContainer/ContentContainer/LeftPanel" instance=ExtResource("6_news_feed")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RightPanel" type="VBoxContainer" parent="VBoxContainer/ContentContainer"]
+layout_mode = 2
+
+[node name="TopRightContainer" type="HSplitContainer" parent="VBoxContainer/ContentContainer/RightPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NetherlandsMap" parent="VBoxContainer/ContentContainer/RightPanel/TopRightContainer" instance=ExtResource("7_netherlands_map")]
+layout_mode = 2
+
+[node name="Calendar" parent="VBoxContainer/ContentContainer/RightPanel/TopRightContainer" instance=ExtResource("5_calendar")]
+layout_mode = 2
+
+[node name="BillsList" parent="VBoxContainer/ContentContainer/RightPanel" instance=ExtResource("4_bills_list")]
+layout_mode = 2
+size_flags_vertical = 3

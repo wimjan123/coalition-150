@@ -1,0 +1,42 @@
+[gd_resource type="GameState" format=3]
+
+[resource]
+current_time_data = {
+"year": 2025,
+"month": 1,
+"day": 15,
+"hour": 9,
+"minute": 0
+}
+government_stats = {
+"approval_rating": 45.5,
+"popularity_rating": 52.3,
+"economic_rating": 38.7,
+"crisis_level": 2
+}
+political_stats = {
+"coalition_strength": 67.8,
+"parliament_support": 78,
+"media_sentiment": 42.1
+}
+economic_stats = {
+"unemployment_rate": 6.2,
+"inflation_rate": 3.1,
+"gdp_growth": 1.8,
+"budget_deficit": 2.4
+}
+game_settings = {
+"difficulty": "Normal",
+"time_scale": 1.0,
+"tutorial_completed": false,
+"save_version": "1.0"
+}
+achievement_flags = [
+"first_session",
+"dashboard_opened"
+]
+tutorial_progress = {
+"completed_steps": [],
+"current_step": "introduction",
+"skipped": false
+}

@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "noord_holland"
+province_name = "Noord-Holland"
+support_level = 41.3
+funding_allocated = 32800
+campaign_activity = 5
+population = 2877909
+economic_strength = 5
+infrastructure_rating = 5
+political_leaning = "progressive"
+key_issues = ["housing", "immigration", "economy"]
+recent_events = []
+polling_data = {
+"sample_size": 1800,
+"margin_of_error": 2.1,
+"last_updated": "2025-01-15"
+}
+media_presence = {
+"local_newspapers": ["Noordhollands Dagblad", "Het Parool"],
+"radio_stations": ["NH Radio"],
+"social_media_reach": 185000
+}
+coalition_partners = ["D66", "VVD"]
+opposition_parties = ["PVV", "FVD", "SP"]

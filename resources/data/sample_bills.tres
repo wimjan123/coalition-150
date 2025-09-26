@@ -1,0 +1,143 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+bills_data = [
+{
+"bill_id": "BILL-2025-001",
+"title": "Climate Action Enhancement Act",
+"description": "Comprehensive legislation to accelerate Netherlands' transition to renewable energy and meet 2030 climate targets.",
+"status": 1,
+"vote_deadline": {
+"year": 2025,
+"month": 2,
+"day": 15,
+"hour": 16,
+"minute": 0
+},
+"category": "environment",
+"urgency_level": 2,
+"coalition_position": 1,
+"support_rating": 67.8,
+"opposition_rating": 32.2,
+"public_opinion": 72.1,
+"economic_impact": -2.3,
+"approval_impact": 3.5,
+"is_urgent": true,
+"requires_simple_majority": false
+},
+{
+"bill_id": "BILL-2025-002",
+"title": "Healthcare System Reform Bill",
+"description": "Reforms to improve healthcare accessibility and reduce waiting times across the Netherlands.",
+"status": 2,
+"vote_deadline": {
+"year": 2025,
+"month": 1,
+"day": 28,
+"hour": 14,
+"minute": 30
+},
+"category": "healthcare",
+"urgency_level": 3,
+"coalition_position": 1,
+"support_rating": 78.4,
+"opposition_rating": 21.6,
+"public_opinion": 84.3,
+"economic_impact": -4.1,
+"approval_impact": 5.2,
+"is_urgent": true,
+"requires_simple_majority": false
+},
+{
+"bill_id": "BILL-2025-003",
+"title": "Digital Infrastructure Investment Act",
+"description": "Major investment in national broadband infrastructure and digital services modernization.",
+"status": 0,
+"vote_deadline": {
+"year": 2025,
+"month": 3,
+"day": 10,
+"hour": 15,
+"minute": 0
+},
+"category": "technology",
+"urgency_level": 1,
+"coalition_position": 1,
+"support_rating": 61.2,
+"opposition_rating": 38.8,
+"public_opinion": 58.9,
+"economic_impact": 1.8,
+"approval_impact": 1.2,
+"is_urgent": false,
+"requires_simple_majority": true
+},
+{
+"bill_id": "BILL-2025-004",
+"title": "Housing Affordability Crisis Response",
+"description": "Emergency measures to address housing shortage and improve affordability for young families.",
+"status": 1,
+"vote_deadline": {
+"year": 2025,
+"month": 2,
+"day": 5,
+"hour": 13,
+"minute": 0
+},
+"category": "housing",
+"urgency_level": 3,
+"coalition_position": 1,
+"support_rating": 82.1,
+"opposition_rating": 17.9,
+"public_opinion": 89.7,
+"economic_impact": -1.5,
+"approval_impact": 4.8,
+"is_urgent": true,
+"requires_simple_majority": false
+},
+{
+"bill_id": "BILL-2025-005",
+"title": "Immigration Integration Framework",
+"description": "Comprehensive framework for immigrant integration programs and language education.",
+"status": 0,
+"vote_deadline": {
+"year": 2025,
+"month": 2,
+"day": 25,
+"hour": 11,
+"minute": 0
+},
+"category": "immigration",
+"urgency_level": 2,
+"coalition_position": 0,
+"support_rating": 45.3,
+"opposition_rating": 54.7,
+"public_opinion": 42.1,
+"economic_impact": -0.8,
+"approval_impact": -1.2,
+"is_urgent": false,
+"requires_simple_majority": true
+},
+{
+"bill_id": "BILL-2025-006",
+"title": "Agricultural Sustainability Transition",
+"description": "Support package for farmers transitioning to sustainable agricultural practices.",
+"status": 0,
+"vote_deadline": {
+"year": 2025,
+"month": 3,
+"day": 20,
+"hour": 16,
+"minute": 30
+},
+"category": "agriculture",
+"urgency_level": 1,
+"coalition_position": 1,
+"support_rating": 68.9,
+"opposition_rating": 31.1,
+"public_opinion": 65.4,
+"economic_impact": -2.1,
+"approval_impact": 2.3,
+"is_urgent": false,
+"requires_simple_majority": true
+}
+]

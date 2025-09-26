@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "friesland"
+province_name = "Friesland"
+support_level = 48.7
+funding_allocated = 15200
+campaign_activity = 3
+population = 649944
+economic_strength = 3
+infrastructure_rating = 3
+political_leaning = "moderate"
+key_issues = ["agriculture", "water_management", "frisian_language"]
+recent_events = []
+polling_data = {
+"sample_size": 920,
+"margin_of_error": 2.9,
+"last_updated": "2025-01-12"
+}
+media_presence = {
+"local_newspapers": ["Leeuwarder Courant", "Friesch Dagblad"],
+"radio_stations": ["Omrop Fryslan"],
+"social_media_reach": 52000
+}
+coalition_partners = ["CDA", "VVD"]
+opposition_parties = ["PVV", "SP"]

@@ -1,0 +1,76 @@
+{
+  "provinces": [
+    {
+      "id": "groningen",
+      "name": "Groningen",
+      "center_x": 230,
+      "center_y": 50
+    },
+    {
+      "id": "friesland",
+      "name": "Friesland",
+      "center_x": 170,
+      "center_y": 70
+    },
+    {
+      "id": "drenthe",
+      "name": "Drenthe",
+      "center_x": 210,
+      "center_y": 120
+    },
+    {
+      "id": "overijssel",
+      "name": "Overijssel",
+      "center_x": 210,
+      "center_y": 180
+    },
+    {
+      "id": "flevoland",
+      "name": "Flevoland",
+      "center_x": 160,
+      "center_y": 160
+    },
+    {
+      "id": "gelderland",
+      "name": "Gelderland",
+      "center_x": 190,
+      "center_y": 230
+    },
+    {
+      "id": "utrecht",
+      "name": "Utrecht",
+      "center_x": 140,
+      "center_y": 200
+    },
+    {
+      "id": "noord_holland",
+      "name": "Noord-Holland",
+      "center_x": 120,
+      "center_y": 140
+    },
+    {
+      "id": "zuid_holland",
+      "name": "Zuid-Holland",
+      "center_x": 100,
+      "center_y": 200
+    },
+    {
+      "id": "zeeland",
+      "name": "Zeeland",
+      "center_x": 80,
+      "center_y": 280
+    },
+    {
+      "id": "noord_brabant",
+      "name": "Noord-Brabant",
+      "center_x": 140,
+      "center_y": 280
+    },
+    {
+      "id": "limburg",
+      "name": "Limburg",
+      "center_x": 180,
+      "center_y": 350
+    }
+  ]
+}

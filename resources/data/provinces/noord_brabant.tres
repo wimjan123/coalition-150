@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "noord_brabant"
+province_name = "Noord-Brabant"
+support_level = 47.6
+funding_allocated = 28900
+campaign_activity = 4
+population = 2562566
+economic_strength = 4
+infrastructure_rating = 4
+political_leaning = "moderate"
+key_issues = ["industry", "agriculture", "innovation"]
+recent_events = []
+polling_data = {
+"sample_size": 1650,
+"margin_of_error": 2.3,
+"last_updated": "2025-01-12"
+}
+media_presence = {
+"local_newspapers": ["Brabants Dagblad", "BN/DeStem"],
+"radio_stations": ["Omroep Brabant"],
+"social_media_reach": 145000
+}
+coalition_partners = ["CDA", "VVD"]
+opposition_parties = ["PVV", "SP"]

@@ -1,0 +1,149 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+news_data = [
+{
+"news_id": "NEWS-2025-001",
+"headline": "Healthcare Workers Union Announces Potential Strike",
+"content": "The largest healthcare workers' union in the Netherlands has announced they may strike if negotiations over working conditions and pay increases do not progress by the end of the month. The union represents over 200,000 healthcare professionals across the country, making this a critical situation for the government to address.",
+"urgency_level": 3,
+"publication_date": {
+"year": 2025,
+"month": 1,
+"day": 14,
+"hour": 8,
+"minute": 30
+},
+"source": "NOS",
+"category": "healthcare",
+"player_response": 0,
+"public_attention": 87.3,
+"media_sentiment": -0.4,
+"approval_impact_potential": -3.2,
+"requires_response": true,
+"response_deadline": {
+"year": 2025,
+"month": 1,
+"day": 20,
+"hour": 17,
+"minute": 0
+}
+},
+{
+"news_id": "NEWS-2025-002",
+"headline": "Economic Growth Exceeds Expectations in Q4 2024",
+"content": "The Dutch economy showed remarkable resilience in the final quarter of 2024, with GDP growth reaching 2.1%, significantly higher than the predicted 1.4%. Analysts credit strong consumer spending and successful export performance for driving this positive result.",
+"urgency_level": 1,
+"publication_date": {
+"year": 2025,
+"month": 1,
+"day": 15,
+"hour": 11,
+"minute": 15
+},
+"source": "Financial Times",
+"category": "economy",
+"player_response": 0,
+"public_attention": 64.8,
+"media_sentiment": 0.7,
+"approval_impact_potential": 2.5,
+"requires_response": false,
+"response_deadline": null
+},
+{
+"news_id": "NEWS-2025-003",
+"headline": "Climate Protesters Block Major Highway in Amsterdam",
+"content": "Environmental activists from Extinction Rebellion have blocked the A10 ring road around Amsterdam this morning, causing significant traffic disruptions. Police are on scene managing the situation as protesters demand faster government action on climate change commitments.",
+"urgency_level": 2,
+"publication_date": {
+"year": 2025,
+"month": 1,
+"day": 15,
+"hour": 9,
+"minute": 45
+},
+"source": "RTL News",
+"category": "environment",
+"player_response": 0,
+"public_attention": 71.2,
+"media_sentiment": -0.2,
+"approval_impact_potential": -1.8,
+"requires_response": true,
+"response_deadline": {
+"year": 2025,
+"month": 1,
+"day": 16,
+"hour": 12,
+"minute": 0
+}
+},
+{
+"news_id": "NEWS-2025-004",
+"headline": "Housing Market Shows Signs of Cooling After Policy Changes",
+"content": "New data from the Dutch Association of Real Estate Brokers shows that housing prices have stabilized for the first time in three years, following recent government interventions in the housing market. Industry experts suggest this indicates the effectiveness of recent policy measures.",
+"urgency_level": 1,
+"publication_date": {
+"year": 2025,
+"month": 1,
+"day": 13,
+"hour": 14,
+"minute": 20
+},
+"source": "AD",
+"category": "housing",
+"player_response": 0,
+"public_attention": 78.9,
+"media_sentiment": 0.3,
+"approval_impact_potential": 1.9,
+"requires_response": false,
+"response_deadline": null
+},
+{
+"news_id": "NEWS-2025-005",
+"headline": "Opposition Parties Unite Against Immigration Integration Bill",
+"content": "Three major opposition parties have announced they will vote together against the government's proposed Immigration Integration Framework, citing concerns over funding allocation and implementation timeline. This represents a significant challenge to the coalition's legislative agenda.",
+"urgency_level": 2,
+"publication_date": {
+"year": 2025,
+"month": 1,
+"day": 12,
+"hour": 16,
+"minute": 30
+},
+"source": "Volkskrant",
+"category": "politics",
+"player_response": 0,
+"public_attention": 69.4,
+"media_sentiment": -0.5,
+"approval_impact_potential": -2.1,
+"requires_response": true,
+"response_deadline": {
+"year": 2025,
+"month": 1,
+"day": 18,
+"hour": 15,
+"minute": 0
+}
+},
+{
+"news_id": "NEWS-2025-006",
+"headline": "Tech Sector Investment Reaches Record High",
+"content": "Foreign investment in Dutch technology companies reached a new record of €4.2 billion in 2024, according to new government statistics. The surge is attributed to favorable tax policies and the country's strong digital infrastructure development programs.",
+"urgency_level": 1,
+"publication_date": {
+"year": 2025,
+"month": 1,
+"day": 11,
+"hour": 10,
+"minute": 0
+},
+"source": "DutchNews",
+"category": "technology",
+"player_response": 0,
+"public_attention": 45.7,
+"media_sentiment": 0.8,
+"approval_impact_potential": 1.4,
+"requires_response": false,
+"response_deadline": null
+}
+]

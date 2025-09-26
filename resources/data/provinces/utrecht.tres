@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "utrecht"
+province_name = "Utrecht"
+support_level = 52.8
+funding_allocated = 22400
+campaign_activity = 4
+population = 1357826
+economic_strength = 5
+infrastructure_rating = 5
+political_leaning = "progressive"
+key_issues = ["housing", "mobility", "sustainability"]
+recent_events = []
+polling_data = {
+"sample_size": 1200,
+"margin_of_error": 2.5,
+"last_updated": "2025-01-14"
+}
+media_presence = {
+"local_newspapers": ["AD Utrecht", "Utrechts Nieuwsblad"],
+"radio_stations": ["RTV Utrecht"],
+"social_media_reach": 98000
+}
+coalition_partners = ["D66", "VVD", "GL"]
+opposition_parties = ["PVV", "FVD"]

@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8hk7j9i0n1m2l3o4"]
+
+[ext_resource type="Script" path="res://scripts/dashboard/components/stats_panel.gd" id="1_stats_panel"]
+[ext_resource type="Theme" path="res://resources/ui/dashboard_theme.tres" id="2_theme"]
+
+[node name="StatsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+script = ExtResource("1_stats_panel")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ApprovalContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ApprovalTitle" type="Label" parent="PanelContainer/HBoxContainer/ApprovalContainer"]
+layout_mode = 2
+text = "Approval Rating"
+horizontal_alignment = 1
+
+[node name="ApprovalLabel" type="Label" parent="PanelContainer/HBoxContainer/ApprovalContainer"]
+layout_mode = 2
+text = "50.0%"
+horizontal_alignment = 1
+
+[node name="TreasuryContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TreasuryTitle" type="Label" parent="PanelContainer/HBoxContainer/TreasuryContainer"]
+layout_mode = 2
+text = "Party Treasury"
+horizontal_alignment = 1
+
+[node name="TreasuryLabel" type="Label" parent="PanelContainer/HBoxContainer/TreasuryContainer"]
+layout_mode = 2
+text = "€100,000"
+horizontal_alignment = 1
+
+[node name="SeatsContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SeatsTitle" type="Label" parent="PanelContainer/HBoxContainer/SeatsContainer"]
+layout_mode = 2
+text = "Parliament Seats"
+horizontal_alignment = 1
+
+[node name="SeatsLabel" type="Label" parent="PanelContainer/HBoxContainer/SeatsContainer"]
+layout_mode = 2
+text = "75 / 150"
+horizontal_alignment = 1
+
+[node name="DateContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="DateTitle" type="Label" parent="PanelContainer/HBoxContainer/DateContainer"]
+layout_mode = 2
+text = "Current Date"
+horizontal_alignment = 1
+
+[node name="DateLabel" type="Label" parent="PanelContainer/HBoxContainer/DateContainer"]
+layout_mode = 2
+text = "January 1, 2025"
+horizontal_alignment = 1
+
+[node name="IndicatorsContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -30.0
+
+[node name="CrisisIndicator" type="Label" parent="PanelContainer/IndicatorsContainer"]
+layout_mode = 2
+text = "🚨 CRISIS"
+modulate = Color(1, 0, 0, 1)
+visible = false
+
+[node name="DebtWarning" type="Label" parent="PanelContainer/IndicatorsContainer"]
+layout_mode = 2
+text = "⚠️ DEBT"
+modulate = Color(1, 0.5, 0, 1)
+visible = false

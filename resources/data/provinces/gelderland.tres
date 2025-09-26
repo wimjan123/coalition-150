@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "gelderland"
+province_name = "Gelderland"
+support_level = 44.2
+funding_allocated = 25600
+campaign_activity = 4
+population = 2084478
+economic_strength = 4
+infrastructure_rating = 4
+political_leaning = "moderate"
+key_issues = ["economy", "housing", "environment"]
+recent_events = []
+polling_data = {
+"sample_size": 1450,
+"margin_of_error": 2.4,
+"last_updated": "2025-01-13"
+}
+media_presence = {
+"local_newspapers": ["De Gelderlander", "Arnhemse Courant"],
+"radio_stations": ["Radio Gelderland"],
+"social_media_reach": 125000
+}
+coalition_partners = ["VVD", "CDA"]
+opposition_parties = ["PVV", "SP"]

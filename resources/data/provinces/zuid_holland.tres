@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "zuid_holland"
+province_name = "Zuid-Holland"
+support_level = 38.9
+funding_allocated = 42500
+campaign_activity = 5
+population = 3705625
+economic_strength = 5
+infrastructure_rating = 4
+political_leaning = "mixed"
+key_issues = ["economy", "immigration", "climate"]
+recent_events = []
+polling_data = {
+"sample_size": 2200,
+"margin_of_error": 1.9,
+"last_updated": "2025-01-14"
+}
+media_presence = {
+"local_newspapers": ["AD", "Haagsche Courant"],
+"radio_stations": ["Den Haag FM", "Radio West"],
+"social_media_reach": 225000
+}
+coalition_partners = ["VVD", "D66"]
+opposition_parties = ["PVV", "SP", "GL"]

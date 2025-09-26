@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://f2lo1n3m4r5p6q7s8"]
+
+[ext_resource type="Script" path="res://scripts/dashboard/components/netherlands_map.gd" id="1_netherlands_map"]
+[ext_resource type="Theme" path="res://resources/ui/dashboard_theme.tres" id="2_theme"]
+
+[node name="NetherlandsMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+script = ExtResource("1_netherlands_map")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HeaderContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Netherlands Campaign Map"
+
+[node name="ViewToggle" type="OptionButton" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Support Level"
+popup/item_1/text = "Funding"
+popup/item_2/text = "Activity"
+
+[node name="MapContainer" type="SubViewport" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MapCanvas" type="Control" parent="VBoxContainer/MapContainer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Provinces" type="Control" parent="VBoxContainer/MapContainer/MapCanvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ProvinceInfo" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="InfoVBox" type="VBoxContainer" parent="VBoxContainer/ProvinceInfo"]
+layout_mode = 2
+
+[node name="ProvinceNameLabel" type="Label" parent="VBoxContainer/ProvinceInfo/InfoVBox"]
+layout_mode = 2
+text = "Select a province"
+
+[node name="ProvinceStatsLabel" type="Label" parent="VBoxContainer/ProvinceInfo/InfoVBox"]
+layout_mode = 2
+text = "Support: -- | Funding: --"

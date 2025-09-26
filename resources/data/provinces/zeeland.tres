@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "zeeland"
+province_name = "Zeeland"
+support_level = 55.4
+funding_allocated = 7800
+campaign_activity = 1
+population = 383689
+economic_strength = 2
+infrastructure_rating = 3
+political_leaning = "conservative"
+key_issues = ["agriculture", "tourism", "flood_protection"]
+recent_events = []
+polling_data = {
+"sample_size": 580,
+"margin_of_error": 4.1,
+"last_updated": "2025-01-07"
+}
+media_presence = {
+"local_newspapers": ["Provinciale Zeeuwse Courant"],
+"radio_stations": ["Omroep Zeeland"],
+"social_media_reach": 28000
+}
+coalition_partners = ["CDA", "VVD"]
+opposition_parties = ["PVV", "SP"]

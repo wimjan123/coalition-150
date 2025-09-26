@@ -1,0 +1,199 @@
+[gd_resource type="Resource" format=3]
+
+[resource]
+characters_data = [
+{
+"character_id": "CHAR-PM-001",
+"full_name": "Maria van der Berg",
+"role": "Prime Minister",
+"party": "D66",
+"political_alignment": "progressive",
+"approval_rating": 52.3,
+"influence_level": 10,
+"background": "Former Education Minister with extensive EU experience",
+"key_traits": ["diplomatic", "pragmatic", "consensus_builder"],
+"specializations": ["education", "european_affairs", "coalition_management"],
+"relationships": [
+{"character_id": "CHAR-DPM-001", "relationship_type": "coalition_partner", "strength": 8},
+{"character_id": "CHAR-MIN-001", "relationship_type": "cabinet_colleague", "strength": 7},
+{"character_id": "CHAR-OPP-001", "relationship_type": "political_rival", "strength": -6}
+],
+"recent_actions": ["eu_summit_attendance", "coalition_negotiation"],
+"public_statements": ["We must balance economic growth with environmental responsibility"],
+"personal_stats": {
+"charisma": 7,
+"intelligence": 9,
+"integrity": 8,
+"experience": 9
+}
+},
+{
+"character_id": "CHAR-DPM-001",
+"full_name": "Johannes Bakker",
+"role": "Deputy Prime Minister",
+"party": "VVD",
+"political_alignment": "liberal",
+"approval_rating": 48.7,
+"influence_level": 8,
+"background": "Business leader turned politician, former Finance Minister",
+"key_traits": ["business_minded", "pragmatic", "cost_conscious"],
+"specializations": ["economics", "business_policy", "fiscal_management"],
+"relationships": [
+{"character_id": "CHAR-PM-001", "relationship_type": "coalition_partner", "strength": 8},
+{"character_id": "CHAR-MIN-002", "relationship_type": "cabinet_colleague", "strength": 6},
+{"character_id": "CHAR-OPP-002", "relationship_type": "ideological_opponent", "strength": -4}
+],
+"recent_actions": ["budget_presentation", "business_roundtable"],
+"public_statements": ["Economic stability is the foundation of all social progress"],
+"personal_stats": {
+"charisma": 6,
+"intelligence": 8,
+"integrity": 7,
+"experience": 7
+}
+},
+{
+"character_id": "CHAR-MIN-001",
+"full_name": "Fatima Al-Hassan",
+"role": "Minister of Health",
+"party": "D66",
+"political_alignment": "progressive",
+"approval_rating": 61.2,
+"influence_level": 6,
+"background": "Medical doctor and public health expert, healthcare reform advocate",
+"key_traits": ["evidence_based", "passionate", "reform_minded"],
+"specializations": ["healthcare", "public_health", "medical_policy"],
+"relationships": [
+{"character_id": "CHAR-PM-001", "relationship_type": "party_colleague", "strength": 7},
+{"character_id": "CHAR-UNION-001", "relationship_type": "negotiating_partner", "strength": 5}
+],
+"recent_actions": ["healthcare_reform_proposal", "union_negotiations"],
+"public_statements": ["Quality healthcare is a fundamental right, not a privilege"],
+"personal_stats": {
+"charisma": 7,
+"intelligence": 9,
+"integrity": 9,
+"experience": 6
+}
+},
+{
+"character_id": "CHAR-MIN-002",
+"full_name": "Erik de Vries",
+"role": "Minister of Infrastructure",
+"party": "VVD",
+"political_alignment": "liberal",
+"approval_rating": 44.8,
+"influence_level": 5,
+"background": "Civil engineer with private sector experience in major projects",
+"key_traits": ["technical", "detail_oriented", "efficiency_focused"],
+"specializations": ["infrastructure", "engineering", "project_management"],
+"relationships": [
+{"character_id": "CHAR-DPM-001", "relationship_type": "party_colleague", "strength": 6},
+{"character_id": "CHAR-PROTEST-001", "relationship_type": "adversarial", "strength": -5}
+],
+"recent_actions": ["highway_expansion_approval", "climate_adaptation_planning"],
+"public_statements": ["Smart infrastructure investment drives long-term prosperity"],
+"personal_stats": {
+"charisma": 4,
+"intelligence": 8,
+"integrity": 6,
+"experience": 8
+}
+},
+{
+"character_id": "CHAR-OPP-001",
+"full_name": "Robert Wilders",
+"role": "Opposition Leader",
+"party": "PVV",
+"political_alignment": "populist",
+"approval_rating": 38.4,
+"influence_level": 7,
+"background": "Long-time parliamentarian known for strong rhetoric on immigration",
+"key_traits": ["populist", "confrontational", "media_savvy"],
+"specializations": ["immigration", "nationalism", "media_relations"],
+"relationships": [
+{"character_id": "CHAR-PM-001", "relationship_type": "political_rival", "strength": -8},
+{"character_id": "CHAR-OPP-002", "relationship_type": "opposition_ally", "strength": 6}
+],
+"recent_actions": ["immigration_bill_opposition", "media_interviews"],
+"public_statements": ["The government has lost touch with ordinary Dutch citizens"],
+"personal_stats": {
+"charisma": 8,
+"intelligence": 6,
+"integrity": 4,
+"experience": 9
+}
+},
+{
+"character_id": "CHAR-OPP-002",
+"full_name": "Linda Verstegen",
+"role": "Shadow Finance Minister",
+"party": "SP",
+"political_alignment": "socialist",
+"approval_rating": 41.6,
+"influence_level": 5,
+"background": "Labor union organizer and economist, advocate for workers' rights",
+"key_traits": ["idealistic", "worker_focused", "anti_establishment"],
+"specializations": ["labor_relations", "social_policy", "economic_justice"],
+"relationships": [
+{"character_id": "CHAR-DPM-001", "relationship_type": "ideological_opponent", "strength": -6},
+{"character_id": "CHAR-UNION-001", "relationship_type": "ally", "strength": 8}
+],
+"recent_actions": ["workers_rights_campaign", "healthcare_union_support"],
+"public_statements": ["Working families deserve better from this government"],
+"personal_stats": {
+"charisma": 6,
+"intelligence": 7,
+"integrity": 8,
+"experience": 6
+}
+},
+{
+"character_id": "CHAR-UNION-001",
+"full_name": "Tom van den Berg",
+"role": "Healthcare Union Leader",
+"party": "none",
+"political_alignment": "worker_rights",
+"approval_rating": 56.7,
+"influence_level": 6,
+"background": "Registered nurse turned union organizer, leading voice for healthcare workers",
+"key_traits": ["determined", "principled", "negotiator"],
+"specializations": ["healthcare_labor", "union_organizing", "collective_bargaining"],
+"relationships": [
+{"character_id": "CHAR-MIN-001", "relationship_type": "negotiating_partner", "strength": 5},
+{"character_id": "CHAR-OPP-002", "relationship_type": "ally", "strength": 8}
+],
+"recent_actions": ["strike_threat_announcement", "media_campaign"],
+"public_statements": ["Healthcare workers have been undervalued for too long"],
+"personal_stats": {
+"charisma": 7,
+"intelligence": 6,
+"integrity": 9,
+"experience": 7
+}
+},
+{
+"character_id": "CHAR-PROTEST-001",
+"full_name": "Sophie Hendriks",
+"role": "Climate Activist Leader",
+"party": "none",
+"political_alignment": "environmental",
+"approval_rating": 34.2,
+"influence_level": 4,
+"background": "Environmental science graduate, leading figure in Dutch climate movement",
+"key_traits": ["passionate", "uncompromising", "media_aware"],
+"specializations": ["climate_policy", "protest_organization", "environmental_science"],
+"relationships": [
+{"character_id": "CHAR-MIN-002", "relationship_type": "adversarial", "strength": -5},
+{"character_id": "CHAR-GREEN-001", "relationship_type": "ally", "strength": 7}
+],
+"recent_actions": ["highway_protest_organization", "climate_demands"],
+"public_statements": ["The government's climate action is too little, too late"],
+"personal_stats": {
+"charisma": 8,
+"intelligence": 7,
+"integrity": 8,
+"experience": 4
+}
+}
+]

@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "drenthe"
+province_name = "Drenthe"
+support_level = 51.2
+funding_allocated = 9800
+campaign_activity = 2
+population = 493682
+economic_strength = 2
+infrastructure_rating = 3
+political_leaning = "conservative"
+key_issues = ["rural_development", "aging_population", "tourism"]
+recent_events = []
+polling_data = {
+"sample_size": 750,
+"margin_of_error": 3.5,
+"last_updated": "2025-01-08"
+}
+media_presence = {
+"local_newspapers": ["Dagblad van het Noorden"],
+"radio_stations": ["RTV Drenthe"],
+"social_media_reach": 35000
+}
+coalition_partners = ["CDA", "VVD"]
+opposition_parties = ["PVV", "FVD"]

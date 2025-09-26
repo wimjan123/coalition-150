@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "limburg"
+province_name = "Limburg"
+support_level = 53.1
+funding_allocated = 16700
+campaign_activity = 3
+population = 1116001
+economic_strength = 3
+infrastructure_rating = 3
+political_leaning = "conservative"
+key_issues = ["mining_legacy", "cross_border", "aging_population"]
+recent_events = []
+polling_data = {
+"sample_size": 980,
+"margin_of_error": 3.0,
+"last_updated": "2025-01-10"
+}
+media_presence = {
+"local_newspapers": ["Limburgs Dagblad", "De Limburger"],
+"radio_stations": ["L1 Radio"],
+"social_media_reach": 72000
+}
+coalition_partners = ["CDA", "VVD"]
+opposition_parties = ["PVV", "SP"]

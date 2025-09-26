@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://e1kn0m2l3q4o5p6r7"]
+
+[ext_resource type="Script" path="res://scripts/dashboard/components/calendar.gd" id="1_calendar"]
+[ext_resource type="Theme" path="res://resources/ui/dashboard_theme.tres" id="2_theme"]
+
+[node name="Calendar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+script = ExtResource("1_calendar")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HeaderContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="MonthLabel" type="Label" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "January 2025"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="CalendarGrid" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 7
+
+[node name="EventsList" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EventsTitle" type="Label" parent="VBoxContainer/EventsList"]
+layout_mode = 2
+text = "Scheduled Events"
+
+[node name="EventsScroll" type="ScrollContainer" parent="VBoxContainer/EventsList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EventsContainer" type="VBoxContainer" parent="VBoxContainer/EventsList/EventsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3

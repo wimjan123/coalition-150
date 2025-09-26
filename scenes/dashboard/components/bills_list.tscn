@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c9il8k0j1o2n3m4p5"]
+
+[ext_resource type="Script" path="res://scripts/dashboard/components/bills_list.gd" id="1_bills_list"]
+[ext_resource type="Theme" path="res://resources/ui/dashboard_theme.tres" id="2_theme"]
+
+[node name="BillsList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("2_theme")
+script = ExtResource("1_bills_list")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HeaderContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Parliamentary Bills"
+
+[node name="FilterButton" type="OptionButton" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "All Bills"
+popup/item_1/text = "Pending"
+popup/item_2/text = "Urgent"
+popup/item_3/text = "Voted"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

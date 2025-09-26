@@ -1,0 +1,26 @@
+[gd_resource type="RegionalData" format=3]
+
+[resource]
+province_id = "groningen"
+province_name = "Groningen"
+support_level = 42.3
+funding_allocated = 12500
+campaign_activity = 2
+population = 585866
+economic_strength = 3
+infrastructure_rating = 4
+political_leaning = "progressive"
+key_issues = ["energy_transition", "agriculture", "population_decline"]
+recent_events = []
+polling_data = {
+"sample_size": 850,
+"margin_of_error": 3.2,
+"last_updated": "2025-01-10"
+}
+media_presence = {
+"local_newspapers": ["Dagblad van het Noorden", "Groninger Gezinsbode"],
+"radio_stations": ["Radio Noord"],
+"social_media_reach": 45000
+}
+coalition_partners = ["D66", "VVD"]
+opposition_parties = ["PVV", "FVD"]
