@@ -4,7 +4,7 @@
 extends Node
 
 # Game state tracking
-enum GameState {
+enum AppState {
 	INITIALIZING = 0,
 	LAUNCH_SCREEN = 1,
 	MAIN_MENU = 2,
@@ -13,8 +13,8 @@ enum GameState {
 	SETTINGS = 5
 }
 
-var current_game_state: GameState = GameState.INITIALIZING
-var previous_game_state: GameState = GameState.INITIALIZING
+var current_game_state: AppState = AppState.INITIALIZING
+var previous_game_state: AppState = AppState.INITIALIZING
 
 # Performance tracking
 var performance_metrics: Dictionary = {
@@ -36,7 +36,7 @@ var loading_timeout_seconds: float = 10.0
 var max_loading_retries: int = 3
 var is_loading_active: bool = false
 
-signal game_state_changed(new_state: GameState, old_state: GameState)
+signal game_state_changed(new_state: AppState, old_state: AppState)
 signal performance_warning(metric: String, value: float)
 signal loading_timeout_exceeded()
 
@@ -60,7 +60,7 @@ func _initialize_game_manager() -> void:
 	_start_performance_monitoring()
 
 	# Transition to launch screen state
-	change_game_state(GameState.LAUNCH_SCREEN)
+	change_game_state(AppState.LAUNCH_SCREEN)
 
 	print("GameManager: Initialization complete")
 
@@ -90,18 +90,18 @@ func get_previous_state() -> GameState:
 func can_transition_to(target_state: GameState) -> bool:
 	# Define valid state transitions
 	match current_game_state:
-		GameState.INITIALIZING:
-			return target_state == GameState.LAUNCH_SCREEN
-		GameState.LAUNCH_SCREEN:
-			return target_state in [GameState.MAIN_MENU, GameState.INITIALIZING]
-		GameState.MAIN_MENU:
-			return target_state in [GameState.IN_GAME, GameState.SETTINGS, GameState.LAUNCH_SCREEN]
-		GameState.IN_GAME:
-			return target_state in [GameState.PAUSED, GameState.MAIN_MENU]
-		GameState.PAUSED:
-			return target_state in [GameState.IN_GAME, GameState.MAIN_MENU]
-		GameState.SETTINGS:
-			return target_state in [GameState.MAIN_MENU, GameState.IN_GAME]
+		AppState.INITIALIZING:
+			return target_state == AppState.LAUNCH_SCREEN
+		AppState.LAUNCH_SCREEN:
+			return target_state in [AppState.MAIN_MENU, AppState.INITIALIZING]
+		AppState.MAIN_MENU:
+			return target_state in [AppState.IN_GAME, AppState.SETTINGS, AppState.LAUNCH_SCREEN]
+		AppState.IN_GAME:
+			return target_state in [AppState.PAUSED, AppState.MAIN_MENU]
+		AppState.PAUSED:
+			return target_state in [AppState.IN_GAME, AppState.MAIN_MENU]
+		AppState.SETTINGS:
+			return target_state in [AppState.MAIN_MENU, AppState.IN_GAME]
 		_:
 			return false
 
@@ -177,11 +177,11 @@ func set_setting(key: String, value) -> void:
 # State transition handlers
 func _handle_state_transition(new_state: GameState, old_state: GameState) -> void:
 	match new_state:
-		GameState.LAUNCH_SCREEN:
+		AppState.LAUNCH_SCREEN:
 			_handle_launch_screen_entry()
-		GameState.MAIN_MENU:
+		AppState.MAIN_MENU:
 			_handle_main_menu_entry()
-		GameState.IN_GAME:
+		AppState.IN_GAME:
 			_handle_game_entry()
 
 func _handle_launch_screen_entry() -> void:
@@ -201,9 +201,9 @@ func _on_scene_transition_completed(scene_path: String) -> void:
 
 	# Update game state based on new scene
 	if scene_path.contains("MainMenu"):
-		change_game_state(GameState.MAIN_MENU)
+		change_game_state(AppState.MAIN_MENU)
 	elif scene_path.contains("LaunchScreen"):
-		change_game_state(GameState.LAUNCH_SCREEN)
+		change_game_state(AppState.LAUNCH_SCREEN)
 
 func _on_scene_transition_failed(error_message: String) -> void:
 	push_error("GameManager: Scene transition failed: " + error_message)
@@ -211,19 +211,19 @@ func _on_scene_transition_failed(error_message: String) -> void:
 # Utility methods
 func _get_state_string(state: GameState) -> String:
 	match state:
-		GameState.INITIALIZING: return "Initializing"
-		GameState.LAUNCH_SCREEN: return "Launch Screen"
-		GameState.MAIN_MENU: return "Main Menu"
-		GameState.IN_GAME: return "In Game"
-		GameState.PAUSED: return "Paused"
-		GameState.SETTINGS: return "Settings"
+		AppState.INITIALIZING: return "Initializing"
+		AppState.LAUNCH_SCREEN: return "Launch Screen"
+		AppState.MAIN_MENU: return "Main Menu"
+		AppState.IN_GAME: return "In Game"
+		AppState.PAUSED: return "Paused"
+		AppState.SETTINGS: return "Settings"
 		_: return "Unknown"
 
 func is_in_game() -> bool:
-	return current_game_state == GameState.IN_GAME
+	return current_game_state == AppState.IN_GAME
 
 func is_loading() -> bool:
-	return is_loading_active or current_game_state == GameState.LAUNCH_SCREEN
+	return is_loading_active or current_game_state == AppState.LAUNCH_SCREEN
 
 # Debug methods
 func debug_print_state() -> void:
