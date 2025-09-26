@@ -68,7 +68,7 @@ func _process(_delta: float) -> void:
 	_update_performance_metrics()
 
 # Game state management
-func change_game_state(new_state: GameState) -> void:
+func change_game_state(new_state: AppState) -> void:
 	if new_state == current_game_state:
 		return
 
@@ -81,13 +81,13 @@ func change_game_state(new_state: GameState) -> void:
 	game_state_changed.emit(new_state, old_state)
 	_handle_state_transition(new_state, old_state)
 
-func get_current_state() -> GameState:
+func get_current_state() -> AppState:
 	return current_game_state
 
-func get_previous_state() -> GameState:
+func get_previous_state() -> AppState:
 	return previous_game_state
 
-func can_transition_to(target_state: GameState) -> bool:
+func can_transition_to(target_state: AppState) -> bool:
 	# Define valid state transitions
 	match current_game_state:
 		AppState.INITIALIZING:
@@ -175,7 +175,7 @@ func set_setting(key: String, value) -> void:
 	print("GameManager: Setting updated: ", key, " = ", value)
 
 # State transition handlers
-func _handle_state_transition(new_state: GameState, old_state: GameState) -> void:
+func _handle_state_transition(new_state: AppState, old_state: AppState) -> void:
 	match new_state:
 		AppState.LAUNCH_SCREEN:
 			_handle_launch_screen_entry()
@@ -209,7 +209,7 @@ func _on_scene_transition_failed(error_message: String) -> void:
 	push_error("GameManager: Scene transition failed: " + error_message)
 
 # Utility methods
-func _get_state_string(state: GameState) -> String:
+func _get_state_string(state: AppState) -> String:
 	match state:
 		AppState.INITIALIZING: return "Initializing"
 		AppState.LAUNCH_SCREEN: return "Launch Screen"
