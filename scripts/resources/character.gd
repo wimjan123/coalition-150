@@ -13,10 +13,10 @@ extends Resource
 @export var political_alignment: GameEnums.PoliticalAlignment
 @export var recent_interactions: Array[Interaction] = []
 
-func get_name() -> String:
+func get_character_name() -> String:
 	return name
 
-func set_name(value: String) -> void:
+func set_character_name(value: String) -> void:
 	name = value
 
 func is_valid() -> bool:
@@ -78,8 +78,9 @@ func get_recent_interaction_count() -> int:
 	return recent_interactions.size()
 
 
-class_name Interaction
-extends Resource
+# Interaction class - inner class for Character interactions
+class Interaction:
+	extends Resource
 
 @export var interaction_date: GameDate
 @export var interaction_type: String

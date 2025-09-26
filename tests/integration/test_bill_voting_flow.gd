@@ -51,23 +51,23 @@ func test_bill_voting_signal_flow():
 
 	var vote_signal_received = false
 	var received_bill_id = ""
-	var received_vote = GameEnums.VoteType.ABSTAIN
+	var received_vote = GameEnums.BillVote.ABSTAIN
 
 	# Connect to vote signal
 	bills_list.bill_vote_cast.connect(
-		func(bill_id: String, vote: GameEnums.VoteType):
+		func(bill_id: String, vote: GameEnums.BillVote):
 			vote_signal_received = true
 			received_bill_id = bill_id
 			received_vote = vote
 	)
 
 	# Simulate vote casting
-	bills_list.bill_vote_cast.emit("BILL-001", GameEnums.VoteType.FOR)
+	bills_list.bill_vote_cast.emit("BILL-001", GameEnums.BillVote.YES)
 	await get_tree().process_frame
 
 	assert_true(vote_signal_received, "Bill vote signal should be received")
 	assert_eq(received_bill_id, "BILL-001", "Should receive correct bill ID")
-	assert_eq(received_vote, GameEnums.VoteType.FOR, "Should receive correct vote")
+	assert_eq(received_vote, GameEnums.BillVote.YES, "Should receive correct vote")
 
 func test_bill_selection_flow():
 	"""Test bill selection and detail display flow"""
@@ -121,18 +121,18 @@ func test_bills_population():
 		return
 
 	# Create test bills data
-	var test_bills: Array[Bill] = []
+	var test_bills: Array[ParliamentaryBill] = []
 
-	var bill1 = Bill.new()
+	var bill1 = ParliamentaryBill.new()
 	bill1.bill_id = "BILL-001"
 	bill1.title = "Healthcare Reform Act"
-	bill1.status = GameEnums.BillStatus.PENDING
+	bill1.status = GameEnums.BillResult.PENDING
 	test_bills.append(bill1)
 
-	var bill2 = Bill.new()
+	var bill2 = ParliamentaryBill.new()
 	bill2.bill_id = "BILL-002"
 	bill2.title = "Economic Stimulus Package"
-	bill2.status = GameEnums.BillStatus.VOTING
+	bill2.status = GameEnums.BillResult.PENDING
 	test_bills.append(bill2)
 
 	# Test population
@@ -177,7 +177,7 @@ func test_vote_consequence_display():
 		return
 
 	var test_bill_id = "CONSEQUENCE-TEST"
-	var test_vote = GameEnums.VoteType.AGAINST
+	var test_vote = GameEnums.BillVote.NO
 
 	# Test consequence display (if method exists)
 	if bills_list.has_method("show_vote_consequences"):
@@ -202,7 +202,7 @@ func test_bill_filtering():
 
 	# Test filtering by status
 	if bills_list.has_method("filter_bills_by_status"):
-		bills_list.filter_bills_by_status(GameEnums.BillStatus.VOTING)
+		bills_list.filter_bills_by_status(GameEnums.BillResult.PENDING)
 		await get_tree().process_frame
 
 		assert_true(true, "Bill filtering should work without errors")
@@ -250,7 +250,7 @@ func test_vote_impact_on_approval():
 	await get_tree().process_frame
 
 	# Cast a vote that might affect approval
-	bills_list.bill_vote_cast.emit("APPROVAL-TEST", GameEnums.VoteType.FOR)
+	bills_list.bill_vote_cast.emit("APPROVAL-TEST", GameEnums.BillVote.YES)
 	await get_tree().process_frame
 
 	# System should handle vote without crashing
@@ -290,7 +290,7 @@ func test_urgent_bill_notifications():
 
 	# Test urgent bill handling
 	if bills_list.has_method("handle_urgent_bill"):
-		var urgent_bill = Bill.new()
+		var urgent_bill = ParliamentaryBill.new()
 		urgent_bill.bill_id = "URGENT-001"
 		urgent_bill.is_urgent = true
 

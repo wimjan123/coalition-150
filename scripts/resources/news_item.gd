@@ -78,8 +78,9 @@ func get_response_description() -> String:
 		_: return "Unknown"
 
 
-class_name ResponseOption
-extends Resource
+# ResponseOption class - inner class for NewsItem response options
+class ResponseOption:
+	extends Resource
 
 @export var response_type: GameEnums.ResponseType
 @export var description: String

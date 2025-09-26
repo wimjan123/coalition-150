@@ -309,7 +309,7 @@ func _simulate_large_bills_load():
 	if not bills_list:
 		return
 
-	var large_bills: Array[Bill] = []
+	var large_bills: Array[ParliamentaryBill] = []
 	for i in range(25):  # Simulate 25 bills
 		var bill = Bill.new()
 		bill.bill_id = "PERF-BILL-" + str(i)

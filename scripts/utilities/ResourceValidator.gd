@@ -33,7 +33,9 @@ static func validate_resource_format(resource: Resource) -> bool:
 
 	# Clean up temp file
 	if FileAccess.file_exists(temp_path):
-		DirAccess.remove_absolute_path(temp_path)
+		var dir = DirAccess.open("user://")
+		if dir:
+			dir.remove("temp_validation.tres")
 
 	return true
 

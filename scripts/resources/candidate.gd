@@ -24,10 +24,10 @@ func is_valid() -> bool:
 
 	return true
 
-func get_name() -> String:
+func get_candidate_name() -> String:
 	return name
 
-func set_name(value: String) -> void:
+func set_candidate_name(value: String) -> void:
 	name = value
 
 func add_specialty(specialty: String) -> void:

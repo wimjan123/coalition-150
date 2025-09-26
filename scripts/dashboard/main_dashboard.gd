@@ -39,9 +39,7 @@ func _initialize_managers() -> void:
 	_dashboard_manager = DashboardManager.new()
 	_regional_manager = RegionalManager.new()
 
-	# Add managers to scene tree for autoload-like behavior
-	add_child(_dashboard_manager)
-	add_child(_regional_manager)
+	# Managers are RefCounted objects, not Nodes - no need to add to scene tree
 
 func _setup_time_controls() -> void:
 	"""Setup time control button connections"""
@@ -269,12 +267,12 @@ func _on_date_selected(date: GameDate) -> void:
 	# Could filter other components by date or show day details
 	pass
 
-func _on_bill_vote_cast(bill_id: String, vote: GameEnums.VoteType) -> void:
+func _on_bill_vote_cast(bill_id: String, vote: GameEnums.BillVote) -> void:
 	"""Handle bill vote casting"""
 	if _dashboard_manager:
 		_dashboard_manager.cast_vote(bill_id, vote)
 
-func _on_bill_selected(bill: Bill) -> void:
+func _on_bill_selected(bill: ParliamentaryBill) -> void:
 	"""Handle bill selection"""
 	# Could show bill details or update related components
 	pass

@@ -133,7 +133,7 @@ func test_quickstart_scenario_bill_voting():
 	var test_bill = Bill.new()
 	test_bill.bill_id = "VOTE-TEST"
 	test_bill.title = "Test Healthcare Bill"
-	test_bill.status = GameEnums.BillStatus.VOTING
+	test_bill.status = GameEnums.BillResult.PENDING
 
 	# Populate with test bill
 	bills_list.populate_bills([test_bill])
@@ -142,12 +142,12 @@ func test_quickstart_scenario_bill_voting():
 	# User should be able to cast vote
 	var vote_received = false
 	bills_list.bill_vote_cast.connect(
-		func(bill_id: String, vote: GameEnums.VoteType):
+		func(bill_id: String, vote: GameEnums.BillVote):
 			vote_received = true
 	)
 
 	# Simulate user casting vote
-	bills_list.bill_vote_cast.emit("VOTE-TEST", GameEnums.VoteType.FOR)
+	bills_list.bill_vote_cast.emit("VOTE-TEST", GameEnums.BillVote.YES)
 	await get_tree().process_frame
 
 	assert_true(vote_received, "User should be able to vote on bills")
@@ -246,7 +246,7 @@ func test_complete_user_session_workflow():
 	# 5. User votes on bill
 	var bills_list = main_dashboard.get_node("VBoxContainer/ContentContainer/RightPanel/BillsList")
 	if bills_list:
-		bills_list.bill_vote_cast.emit("TEST-BILL", GameEnums.VoteType.FOR)
+		bills_list.bill_vote_cast.emit("TEST-BILL", GameEnums.BillVote.YES)
 		await get_tree().process_frame
 
 	# 6. User selects province for campaign

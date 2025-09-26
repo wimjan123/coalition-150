@@ -9,18 +9,18 @@ signal special_opportunities_available()
 signal debt_warning_triggered()
 signal emergency_fundraising_required()
 
-var _current_state: GameState
+var _current_state: GameStateData
 var _save_file_path: String = "user://game_save.tres"
 
 func _ready():
 	"""Initialize game state management"""
 	_current_state = _create_default_state()
 
-func get_current_state() -> GameState:
+func get_current_state() -> GameStateData:
 	"""Get current game state"""
 	return _current_state
 
-func update_state(new_state: GameState) -> bool:
+func update_state(new_state: GameStateData) -> bool:
 	"""Update current state with validation"""
 	if not new_state or not new_state.is_valid():
 		return false
@@ -38,7 +38,7 @@ func update_state(new_state: GameState) -> bool:
 
 	return true
 
-func create_default_state() -> GameState:
+func create_default_state() -> GameStateData:
 	"""Create a default game state"""
 	return _create_default_state()
 
@@ -62,7 +62,7 @@ func load_game(file_path: String = "") -> int:
 		print("Save file not found: ", load_path)
 		return ERR_FILE_NOT_FOUND
 
-	var loaded_state = ResourceLoader.load(load_path) as GameState
+	var loaded_state = ResourceLoader.load(load_path) as GameStateData
 	if not loaded_state:
 		print("Failed to load game state from: ", load_path)
 		return ERR_INVALID_DATA
@@ -169,10 +169,10 @@ func set_time_paused(paused: bool) -> void:
 
 ## Private methods
 
-func _create_default_state() -> GameState:
+func _create_default_state() -> GameStateData:
 	"""Create default game state"""
-	var state = GameState.new()
-	# Default values are set in the GameState resource constructor
+	var state = GameStateData.new()
+	# Default values are set in the GameStateData resource constructor
 	return state
 
 func _check_state_triggers(old_approval: float, old_treasury: int) -> void:

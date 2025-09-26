@@ -1,7 +1,7 @@
 # GameState Resource
 # Core game state management for dashboard display
 
-class_name GameState
+class_name GameStateData
 extends Resource
 
 @export var approval_rating: float = 50.0  # 0.0-100.0
